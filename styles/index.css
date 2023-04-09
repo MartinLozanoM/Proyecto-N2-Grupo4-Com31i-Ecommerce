@@ -43,6 +43,14 @@
   color: white;
 }
 
+.products-menu ul {
+  background-color: #f9c231;
+}
+
+.products-menu ul li a:hover {
+  background-color: #f9c231;
+}
+
 /* ? Media queries Navbar */
 
 /* ------------- End Navbar ------------- */
