@@ -54,3 +54,48 @@
 /* ? Media queries Navbar */
 
 /* ------------- End Navbar ------------- */
+/* ------------- Start Footer ------------- */
+footer {
+    background-color: #e1bd1b;
+    padding: 20px;
+  }
+  
+  .footer-info-color {
+    color: #161615;
+  }
+  
+  
+  .footer-info {
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    
+  }
+  
+  .footer-info-items {
+    width: 20%;
+    height: 100%;
+    padding: 0px 10px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+  
+  .footer-info-items div {
+    width: 100%;
+    height: 22%;
+  }
+  
+  .footer-info-items div a {
+    width: 100%;
+    height: 22%;
+    color: #1a1a19;
+  }
+  
+  .footer-info div img {
+    width: 20px;
+  }
+/* ------------- End Footer ------------- */
