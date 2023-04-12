@@ -1,3 +1,60 @@
+/* ------------- Start Navbar ------------- */
+.navbar-rm {
+  background-color: #f9c231;
+  color: black;
+}
+
+.hamburger-menu i {
+  font-size: 1.5rem;
+}
+
+.user-icon,
+.cart-icon {
+  background-color: transparent;
+  border: 1px solid transparent;
+  color: black;
+  font-size: 1.5rem;
+}
+
+.user-icon:hover,
+.cart-icon:hover {
+  background-color: transparent;
+  border: 1px solid transparent;
+  color: white;
+}
+
+.user-icon:focus,
+.cart-icon:focus {
+  background-color: transparent;
+  border: 1px solid transparent;
+  box-shadow: none;
+  color: white;
+}
+
+.menu-items li a {
+  color: black;
+}
+
+.menu-items li a:hover {
+  color: white;
+}
+
+.menu-items li a:focus {
+  color: white;
+}
+
+.products-menu ul {
+  background-color: #f9c231;
+}
+
+.products-menu ul li a:hover {
+  background-color: #f9c231;
+}
+
+/* ? Media queries Navbar */
+
+/* ------------- End Navbar ------------- */
+/* ------------- Start Footer ------------- */
 footer {
     background-color: #e1bd1b;
     padding: 20px;
@@ -41,4 +98,4 @@ footer {
   .footer-info div img {
     width: 20px;
   }
-
+/* ------------- End Footer ------------- */
