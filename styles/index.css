@@ -87,13 +87,17 @@
   }
   .menu-items {
     grid-area: menu;
+    display: flex !important;
   }
   .menu-items-list {
     flex-direction: row;
   }
+  .menu-items-list li {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
   .search-bar-container {
     margin-top: 0;
-    width: 400px;
   }
 }
 
