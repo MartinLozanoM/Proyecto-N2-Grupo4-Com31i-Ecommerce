@@ -31,6 +31,21 @@
   color: white;
 }
 
+/* Start Cart */
+
+.producto-in-cart {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+
+.producto-in-cart p {
+  margin: 0;
+}
+
+/* End Cart */
+
 .menu-items li a {
   color: black;
 }
@@ -99,7 +114,6 @@
     margin-top: 0;
   }
 }
-
 /* ------------- End Navbar ------------- */
 /* ------------- Start Footer ------------- */
 footer {

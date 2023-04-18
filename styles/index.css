@@ -34,17 +34,34 @@
 
 /* Start Cart */
 
-.producto-in-cart {
+.product-in-cart {
   display: flex;
   justify-content: space-around;
   align-items: center;
   text-align: center;
 }
 
-.producto-in-cart p {
+.product-in-cart p {
   margin: 0;
 }
 
+.view-cart-button,
+.view-cart-button:focus {
+  background-color: #198754;
+  border: 1px solid #198754;
+}
+
+.view-cart-button:hover {
+  background-color: #198754;
+  border: 1px solid #198754;
+  color: white;
+  opacity: 0.9;
+}
+
+.view-cart-button a {
+  text-decoration: none;
+  color: white;
+}
 /* End Cart */
 
 .menu-items li a {
