@@ -44,7 +44,7 @@
             data-bs-toggle="modal"
             data-bs-target="#exampleModal"
           >
-            <i class="bi bi-cart-fill"></i>
+            <i class="bi bi-cart-fill" id="cart-icon-counter"></i>
           </button>
           <!-- Modal Cart -->
           <div
@@ -65,14 +65,7 @@
                     aria-label="Close"
                   ></button>
                 </div>
-                <div class="modal-body product-in-cart">
-                  <p>Product</p>
-                  <p>Total:</p>
-                  <p>Price:</p>
-                  <button type="button" class="btn btn-danger">
-                    <i class="bi bi-trash-fill"></i>
-                  </button>
-                </div>
+                <div id="modal-cart-main" class="modal-body"></div>
                 <div class="modal-footer">
                   <button
                     type="button"
@@ -257,6 +250,7 @@
           </form>
         </div>
       </div>
+      <button id="button-counter">Add to car</button>
     </main>
     <footer>
       <div class="footer-info">
@@ -338,4 +332,5 @@
       crossorigin="anonymous"
     ></script>
   </body>
+  <script src="./scripts/index.js"></script>
 </html>
