@@ -32,7 +32,7 @@ const itemFooter = [
         profileLinkedin: "",
         profileGithub: "https://github.com/AgustinLizarraga",
     },
- 
+  
 ]
 const renderFooter = (item) => {
     // containerFooter.innerHTML = ""
@@ -51,8 +51,7 @@ const renderFooter = (item) => {
             <i class="bi bi-github"></i>
           </a>
           <a
-            href="${item.profileLinkedin}"
-          >
+            href="${item.profileLinkedin}" target="_blank">
             <i class="bi bi-linkedin"></i>
           </a>
         </div>
