@@ -3,22 +3,30 @@
     justify-content: space-between;
     margin-left: 1.5rem;
     margin-right: 1.5rem;
+    margin-block-end: 1.5rem;
 }
 
 .card-title{
     text-align: center;
+    font-family:Arial, Helvetica, sans-serif
 }
 
 .card-text{
     text-align: center;
+    font-family:Arial, Helvetica, sans-serif
 }
 
 .price-price-mobile{
     text-align: center;
+    font-family:Arial, Helvetica, sans-serif
 }
 
 .image-product{
     margin-left: 3rem;
     width: 200px;
     height: 200px;
+}
+
+.button-add{
+    margin-left: 5rem;
 }
