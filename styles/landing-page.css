@@ -1,0 +1,24 @@
+.products-container-div{
+    margin-top: 1.5rem;
+    justify-content: space-between;
+    margin-left: 1.5rem;
+    margin-right: 1.5rem;
+}
+
+.card-title{
+    text-align: center;
+}
+
+.card-text{
+    text-align: center;
+}
+
+.price-price-mobile{
+    text-align: center;
+}
+
+.image-product{
+    margin-left: 3rem;
+    width: 200px;
+    height: 200px;
+}
