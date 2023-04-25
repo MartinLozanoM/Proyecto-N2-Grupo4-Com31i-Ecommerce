@@ -4,7 +4,7 @@ const cartIconCounter = document.getElementById("cart-icon-counter");
 const modalMainCart = document.getElementById("modal-cart-main");
 const deleteCartButton = document.getElementById("delete-cart-button");
 
-let counterCart = 0;
+let counterCart = [];
 
 buttonCounter.addEventListener("click", () => {
   counterCart++;
@@ -25,6 +25,8 @@ buttonCounter.addEventListener("click", () => {
   `;
   modalMainCart.appendChild(div);
 });
+
+console.log(counterCart);
 // -------- End Navbar -------
 //Start Slider
 const imagenes = [

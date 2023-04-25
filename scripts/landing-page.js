@@ -264,7 +264,6 @@ const productsStore = [
     },
   },
 ];
-
 const productsContainer = document.getElementById("products-container");
 console.log(productsContainer);
 productsContainer.classList.add("d-flex", "flex-wrap");
@@ -296,7 +295,7 @@ const renderProducts = (products) => {
                     <h5 class="card-title">${product.title}</h5>
                     <p class="card-text">${product.description}</p>
                     <p class="price-price-mobile">$ ${product.price}</p>
-                    <a href="La url del producto" class="btn btn-primary button-add">Agregar</a>
+                    <a href="#" id="button-counter" class="btn btn-primary button-add">Agregar</a>
                 </div>
             </div>
         `;
@@ -308,3 +307,98 @@ const renderProducts = (products) => {
 renderProducts(products);
 
 //End-products
+
+// ------- Navbar -------
+const buttonCounter = document.getElementById("button-counter");
+const cartIconCounter = document.getElementById("cart-icon-counter");
+const modalMainCart = document.getElementById("modal-cart-main");
+const deleteCartButton = document.getElementById("delete-cart-button");
+
+let counterCart = [];
+
+buttonCounter.addEventListener("click", () => {
+  counterCart++;
+  cartIconCounter.textContent = counterCart;
+  console.log(counterCart);
+});
+
+buttonCounter.addEventListener("click", () => {
+  const div = document.createElement("div");
+  div.classList.add("product-in-cart");
+  div.innerHTML = `
+  <p>Product</p>
+  <p>Total:</p>
+  <p>Price:</p>
+  <button id="delete-cart-button" type="button" class="btn btn-danger">
+    <i class="bi bi-trash-fill"></i>
+  </button>
+  `;
+  modalMainCart.appendChild(div);
+});
+
+console.log(counterCart);
+// -------- End Navbar -------
+
+//footer
+const containerFooter = document.getElementById("footer-container");
+
+const itemFooter = [
+  {
+    name: "Martin Lozano Muñoz",
+    profileLinkedin:
+      "https://www.linkedin.com/in/martin-lozano-mu%C3%B1oz-bbb545235",
+    profileGithub: "https://github.com/MartinLozanoM",
+  },
+
+  {
+    name: "Bernardo Villafañe",
+    profileLinkedin: "",
+    profileGithub: "https://github.com/Berni011",
+  },
+
+  {
+    name: "Daniela Artaza Quiroga",
+    profileLinkedin:
+      "https://www.linkedin.com/in/daniela-artaza-quiroga-403b3a218/",
+    profileGithub: "https://github.com/DanielaQuiroga15",
+  },
+
+  {
+    name: "Andrea Toledo",
+    profileLinkedin: "",
+    profileGithub: "",
+  },
+
+  {
+    name: "Agustin Lizarraga",
+    profileLinkedin: "",
+    profileGithub: "https://github.com/AgustinLizarraga",
+  },
+];
+const renderFooter = (item) => {
+  // containerFooter.innerHTML = ""
+  item.forEach((item) => {
+    const elementitem = document.createElement("div");
+
+    elementitem.classList.add("footer-info-items");
+
+    elementitem.innerHTML = `
+
+        <div class="col-8">
+          <p class="footer-info-color">${item.name}</p>
+        </div>
+        <div class="col-4">
+          <a href="${item.profileGithub}" target="_blank">
+            <i class="bi bi-github"></i>
+          </a>
+          <a
+            href="${item.profileLinkedin}" target="_blank">
+            <i class="bi bi-linkedin"></i>
+          </a>
+        </div>
+        `;
+    containerFooter.appendChild(elementitem);
+  });
+};
+renderFooter(itemFooter);
+//End Footer
