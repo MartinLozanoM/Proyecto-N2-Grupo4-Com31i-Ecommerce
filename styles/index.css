@@ -185,3 +185,34 @@ footer {
   color: white;
 }
 /* ------------- End Footer ------------- */
+
+/* ------------- Start Slider ----------- */
+.contenedor-slider
+{
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    max-width: 1200px;
+    padding: 0px 40px;
+}
+
+.slider-izquierdo, .slider-derecho
+{
+    width: 5%;
+}
+
+.slider-izquierdo img, .slider-derecho img
+{
+   width: 100%;
+
+}
+
+.slider-screen
+{
+    width: 100%;
+}
+
+.slider-screen img
+{
+    width: 100%;
+}
