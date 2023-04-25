@@ -101,6 +101,5 @@ const renderFooter = (item) => {
     containerFooter.appendChild(elementitem);
   });
 };
-
 renderFooter(itemFooter);
 //End Footer
