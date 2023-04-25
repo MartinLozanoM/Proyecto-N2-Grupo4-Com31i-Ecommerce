@@ -25,8 +25,6 @@
 //   `;
 //   modalMainCart.appendChild(div);
 // });
-
-console.log(counterCart);
 // -------- End Navbar -------
 //Start Slider
 const imagenes = [
