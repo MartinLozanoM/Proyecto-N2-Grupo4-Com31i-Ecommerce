@@ -45,7 +45,9 @@
             data-bs-toggle="modal"
             data-bs-target="#exampleModal"
           >
-            <i class="bi bi-cart-fill" id="cart-icon-counter"></i>
+            <i class="bi bi-cart-fill">
+              <span id="cart-icon-counter">0</span>
+            </i>
           </button>
           <!-- Modal Cart -->
           <div
@@ -69,11 +71,12 @@
                 <div id="modal-cart-main" class="modal-body"></div>
                 <div class="modal-footer">
                   <button
+                    id="empty-button"
                     type="button"
                     class="btn btn-secondary"
                     data-bs-dismiss="modal"
                   >
-                    Close cart
+                    Empty cart
                   </button>
                   <button
                     type="button"

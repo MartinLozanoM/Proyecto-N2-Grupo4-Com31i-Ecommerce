@@ -295,12 +295,16 @@ const renderProducts = (products) => {
                     <h5 class="card-title">${product.title}</h5>
                     <p class="card-text">${product.description}</p>
                     <p class="price-price-mobile">$ ${product.price}</p>
-                    <a href="#" id="button-counter" class="btn btn-primary button-add">Agregar</a>
+                    <button id="button-counter-${product.id}" class="btn btn-primary button-add">Agregar</button>
                 </div>
             </div>
         `;
-
     productsContainer.appendChild(productElement);
+    const addButton = document.getElementById(`button-counter-${product.id}`);
+    addButton.addEventListener("click", () => {
+      addCart(product.id);
+      console.log(cart);
+    });
   });
 };
 
@@ -308,35 +312,52 @@ renderProducts(products);
 
 //End-products
 
-// ------- Navbar -------
-const buttonCounter = document.getElementById("button-counter");
-const cartIconCounter = document.getElementById("cart-icon-counter");
-const modalMainCart = document.getElementById("modal-cart-main");
-const deleteCartButton = document.getElementById("delete-cart-button");
+// ------- Cart -------
 
-let counterCart = [];
+let cart = [];
 
-buttonCounter.addEventListener("click", () => {
-  counterCart++;
-  cartIconCounter.textContent = counterCart;
-  console.log(counterCart);
-});
-
-buttonCounter.addEventListener("click", () => {
-  const div = document.createElement("div");
-  div.classList.add("product-in-cart");
-  div.innerHTML = `
-  <p>Product</p>
-  <p>Total:</p>
-  <p>Price:</p>
-  <button id="delete-cart-button" type="button" class="btn btn-danger">
-    <i class="bi bi-trash-fill"></i>
-  </button>
+// ------- Add Products in the cart-Array -------
+const addCart = (prodId) => {
+  const item = products.find((prod) => prod.id === prodId);
+  cart.push(item);
+  cartUpdate();
+};
+// ------- Add Products in the cart-divs -------
+const cartContainer = document.getElementById("modal-cart-main");
+// ------- Cart Update -------
+const cartUpdate = () => {
+  cartContainer.innerHTML = "";
+  cart.forEach((prod) => {
+    const div = document.createElement("div");
+    div.classList.add("product-in-cart");
+    div.innerHTML = `
+      <p>${prod.title}</p>
+      <p>Total: <span id="total-product">${prod.cantidad}</span></p>
+      <p>Price: $${prod.price}</p>
+      <button onclick ="deleteItemFromCart(${prod.id})" type="button" class="btn btn-danger">
+      <i class="bi bi-trash-fill"></i>
+      </button>
   `;
-  modalMainCart.appendChild(div);
+    cartContainer.appendChild(div);
+  });
+  counterIconCart.innerText = cart.length;
+};
+// ------- Delete Product in the cart -------
+const deleteItemFromCart = (prodId) => {
+  const item = products.find((prod) => prod.id === prodId);
+  const index = cart.indexOf(item);
+  cart.splice(index, 1);
+  cartUpdate();
+};
+// ------- Delete All Products in the cart -------
+const emptyButton = document.getElementById("empty-button");
+emptyButton.addEventListener("click", () => {
+  cart.length = 0;
+  cartUpdate();
 });
+// ------- Cart Counter -------
+const counterIconCart = document.getElementById("cart-icon-counter");
 
-console.log(counterCart);
 // -------- End Navbar -------
 
 //footer
