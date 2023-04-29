@@ -308,7 +308,13 @@ const renderProducts = (products) => {
   });
 };
 
-renderProducts(products);
+function getProductsByCategory(category) {
+  return productsStore.filter((product) => product.category === category);
+}
+
+const womensClothingProducts = getProductsByCategory("women's clothing");
+
+renderProducts(womensClothingProducts);
 
 //End-products
 
@@ -342,6 +348,7 @@ const cartUpdate = () => {
   });
   counterIconCart.innerText = cart.length;
 };
+
 // ------- Delete Product in the cart -------
 const deleteItemFromCart = (prodId) => {
   const item = products.find((prod) => prod.id === prodId);
