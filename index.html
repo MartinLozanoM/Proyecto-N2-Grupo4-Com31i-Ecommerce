@@ -25,7 +25,7 @@
       <nav class="navbar navbar-expand-lg navbar-rm">
         <div class="container-fluid navbar-container">
           <!-- Logo -->
-          <a class="navbar-brand logo-rm" href="#">
+          <a class="navbar-brand logo-rm" href="./index.html">
             <img
               src="./assets/img/LOGO SVG.svg"
               alt=""
@@ -44,8 +44,46 @@
             data-bs-toggle="modal"
             data-bs-target="#exampleModal"
           >
-            <i class="bi bi-cart-fill"></i>
+            <i class="bi bi-cart-fill" id="cart-icon-counter"></i>
           </button>
+          <!-- Modal Cart -->
+          <div
+            class="modal fade"
+            id="exampleModal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">Your cart</h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div id="modal-cart-main" class="modal-body"></div>
+                <div class="modal-footer">
+                  <button
+                    type="button"
+                    class="btn btn-secondary"
+                    data-bs-dismiss="modal"
+                  >
+                    Close cart
+                  </button>
+                  <button
+                    type="button"
+                    class="btn btn-primary view-cart-button"
+                  >
+                    <a href="./cart.html">View cart</a>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
           <!-- Hamburger Menu -->
           <button
             class="navbar-toggler hamburger-menu"
@@ -65,10 +103,12 @@
           >
             <ul class="navbar-nav menu-items-list">
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="#">Home</a>
+                <a class="nav-link" aria-current="page" href="./index.html"
+                  >Home</a
+                >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Landing Page</a>
+                <a class="nav-link" href="./landing-page.html">Landing Page</a>
               </li>
               <li class="nav-item dropdown products-menu">
                 <a
@@ -111,52 +151,22 @@
     <!-- End Navbar -->
     <main>
       <!-- SLIDER -->
-      <div
-        id="carouselExampleControls"
-        class="carousel slide"
-        data-bs-ride="carousel"
-      >
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img
-              src="./assets/img/Slider1.png"
-              class="d-block w-100"
-              alt="Slider1"
-            />
-          </div>
-          <div class="carousel-item">
-            <img
-              src="./assets/img/Slider2.png"
-              class="d-block w-100"
-              alt="Slider2"
-            />
-          </div>
-          <div class="carousel-item">
-            <img
-              src="./assets/img/Slider3.png"
-              class="d-block w-100"
-              alt="Slider3"
-            />
-          </div>
+      <div class="contenedor-slider">
+        <div class="slider-izquierdo">
+          <img
+            decoding="async"
+            src=".//assets/img/flecha izquierda.png"
+            alt=""
+          />
         </div>
-        <button
-          class="carousel-control-prev"
-          type="button"
-          data-bs-target="#carouselExampleControls"
-          data-bs-slide="prev"
-        >
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button
-          class="carousel-control-next"
-          type="button"
-          data-bs-target="#carouselExampleControls"
-          data-bs-slide="next"
-        >
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
+
+        <div class="slider-screen">
+          <img name="Imagen" />
+        </div>
+
+        <div class="slider-derecho">
+          <img decoding="async" src=".//assets/img/flecha derecha.png" alt="" />
+        </div>
       </div>
       <!-- Form -->
       <div class="container text-center form-container">
@@ -212,77 +222,7 @@
       </div>
     </main>
     <footer>
-      <div class="footer-info">
-        <div class="footer-info-items">
-          <div class="col-8">
-            <p class="footer-info-color">Martin Lozano Muñoz</p>
-          </div>
-          <div class="col-4">
-            <a href="https://github.com/MartinLozanoM" target="_blank">
-              <i class="bi bi-github"></i>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/martin-lozano-mu%C3%B1oz-bbb545235"
-            >
-              <i class="bi bi-linkedin"></i>
-            </a>
-          </div>
-        </div>
-        <div class="footer-info-items">
-          <div class="col-8">
-            <p class="footer-info-color">Bernardo Villafañe</p>
-          </div>
-          <div class="col-4">
-            <a href="https://github.com/Berni011" target="_blank">
-              <i class="bi bi-github"></i>
-            </a>
-            <a href="">
-              <i class="bi bi-linkedin"></i>
-            </a>
-          </div>
-        </div>
-        <div class="footer-info-items">
-          <div class="col-8">
-            <p class="footer-info-color">Daniela Quirogaa</p>
-          </div>
-          <div class="col-4">
-            <a href="https://github.com/DanielaQuiroga15" target="_blank">
-              <i class="bi bi-github"></i>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/daniela-artaza-quiroga-403b3a218/"
-            >
-              <i class="bi bi-linkedin"></i>
-            </a>
-          </div>
-        </div>
-        <div class="footer-info-items">
-          <div class="col-8">
-            <p class="footer-info-color">Andrea Toledo</p>
-          </div>
-          <div class="col-4">
-            <a href="https://github.com/DanielaQuiroga15" target="_blank">
-              <i class="bi bi-github"></i>
-            </a>
-            <a href="">
-              <i class="bi bi-linkedin"></i>
-            </a>
-          </div>
-        </div>
-        <div class="footer-info-items">
-          <div class="col-8">
-            <p class="footer-info-color">Agustin Lizarraga</p>
-          </div>
-          <div class="col-4">
-            <a href="https://github.com/AgustinLizarraga" target="_blank">
-              <i class="bi bi-github"></i>
-            </a>
-            <a href="">
-              <i class="bi bi-linkedin"></i>
-            </a>
-          </div>
-        </div>
-      </div>
+      <div class="footer-info" id="footer-container"></div>
     </footer>
     <!-- Bootstrap -->
     <script
