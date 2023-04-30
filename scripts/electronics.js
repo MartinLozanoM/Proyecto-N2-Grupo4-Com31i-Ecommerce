@@ -2,10 +2,10 @@ const sliderConteiner = document.getElementById("carouselExampleAutoplaying");
 
 const imagenSlider = [
   {
-    images1: "./assets/img/slider1.jpg",
-    images2: "./assets/img/slide3-image-1.webp",
+    images1: "./assets/img/sliderElectronico.jpg",
+    images2: "./assets/img/electronica2.jpg",
     images3: "./assets/img/slide2-image-3.jpeg",
-    images4: "./assets/img/slider4.jpg",
+    images4: "./assets/img/electronica4.jpeg",
   },
 ];
 
