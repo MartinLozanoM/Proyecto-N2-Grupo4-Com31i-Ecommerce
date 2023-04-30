@@ -330,7 +330,6 @@ const addCart = (prodId) => {
   }
   cartUpdate();
 };
-
 // ------- Add Products in the cart-divs -------
 const cartContainer = document.getElementById("modal-cart-main");
 // ------- Cart Update -------
