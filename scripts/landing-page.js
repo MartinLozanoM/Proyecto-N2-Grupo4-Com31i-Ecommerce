@@ -275,6 +275,7 @@ const products = productsStore.map((product) => {
     price: product.price,
     id: product.id,
     image: product.image,
+    quantity: 1,
   };
 });
 
@@ -318,10 +319,18 @@ let cart = [];
 
 // ------- Add Products in the cart-Array -------
 const addCart = (prodId) => {
-  const item = products.find((prod) => prod.id === prodId);
-  cart.push(item);
+  const itemIndex = cart.findIndex((item) => item.id === prodId); // Encuentra el índice del producto en el carrito, si existe
+  if (itemIndex !== -1) {
+    // Si el producto ya está en el carrito, aumenta su cantidad
+    cart[itemIndex].quantity += 1;
+  } else {
+    // Si el producto no está en el carrito, agrega un nuevo objeto de producto con cantidad 1
+    const item = products.find((prod) => prod.id === prodId);
+    cart.push(item);
+  }
   cartUpdate();
 };
+
 // ------- Add Products in the cart-divs -------
 const cartContainer = document.getElementById("modal-cart-main");
 // ------- Cart Update -------
@@ -332,7 +341,7 @@ const cartUpdate = () => {
     div.classList.add("product-in-cart");
     div.innerHTML = `
       <p>${prod.title}</p>
-      <p>Total: <span id="total-product">${prod.cantidad}</span></p>
+      <p>Quantity: <span id="total-product">${prod.quantity}</span></p>
       <p>Price: $${prod.price}</p>
       <button onclick ="deleteItemFromCart(${prod.id})" type="button" class="btn btn-danger">
       <i class="bi bi-trash-fill"></i>
