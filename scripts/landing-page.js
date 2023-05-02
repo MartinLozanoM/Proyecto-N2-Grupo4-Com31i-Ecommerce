@@ -374,7 +374,7 @@ const containerFooter = document.getElementById("footer-container");
 
 const itemFooter = [
   {
-    name: "Martin Lozano Muñoz",
+    name: "Martín Lozano Muñoz",
     profileLinkedin:
       "https://www.linkedin.com/in/martin-lozano-mu%C3%B1oz-bbb545235",
     profileGithub: "https://github.com/MartinLozanoM",
@@ -400,7 +400,7 @@ const itemFooter = [
   },
 
   {
-    name: "Agustin Lizarraga",
+    name: "Agustín Lizarraga",
     profileLinkedin: "",
     profileGithub: "https://github.com/AgustinLizarraga",
   },
