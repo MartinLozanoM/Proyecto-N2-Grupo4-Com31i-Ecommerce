@@ -132,20 +132,27 @@
                   <li><a class="dropdown-item" href="./jewelery.html">Accesorios</a></li>
                 </ul>
               </li>
-              <form class="d-flex search-bar-container">
+              <!-- Start Search Bar -->
+              <input type="text" id="search-input" placeholder="Buscar">
+              <button id="search-button" class="btn btn-primary">Buscar</button> 
+               <!-- <form class="d-flex search-bar-container">
                 <input
+                  id="search-input"
+                  name="searchBar"
                   class="form-control"
                   type="search"
                   placeholder="Buscar"
                   aria-label="Search"
                 />
                 <button
+                id="search-button"
                   class="btn btn-outline-success search-button"
                   type="submit"
                 >
                   <i class="bi bi-search"></i>
                 </button>
-              </form>
+              </form>  -->
+              <!-- End Search Bar -->
             </ul>
           </div>
         </div>
@@ -169,8 +176,8 @@
           </form>
     </main>
     <!-- Footer -->
-    <footer>
-      <div class="footer-info" id="footer-container"></div>
+    <footer id="footer-container">
+
     </footer>
     <!-- Bootstrap -->
     <script
