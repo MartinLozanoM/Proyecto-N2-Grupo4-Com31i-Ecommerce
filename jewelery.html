@@ -17,7 +17,8 @@
     />
     <!-- Styles -->
     <link rel="stylesheet" href="./styles/index.css" />
-    <title>Inicio</title>
+    <link rel="stylesheet" href="./styles/pages.css">
+    <title>Accesorios</title>
   </head>
   <body>
     <!-- Navbar Start -->
@@ -27,10 +28,10 @@
           <!-- Logo -->
           <a class="navbar-brand logo-rm" href="./index.html">
             <img
-              src="./assets/img/LOGO SVG.svg"
+              src="./assets/img/descarga.png"
               alt=""
-              width="500"
-              height="145"
+              width="100"
+              height="50"
             />
           </a>
           <!-- User -->
@@ -44,7 +45,9 @@
             data-bs-toggle="modal"
             data-bs-target="#exampleModal"
           >
-            <i class="bi bi-cart-fill" id="cart-icon-counter"></i>
+            <i class="bi bi-cart-fill">
+              <span id="cart-icon-counter">0</span>
+            </i>
           </button>
           <!-- Modal Cart -->
           <div
@@ -68,11 +71,12 @@
                 <div id="modal-cart-main" class="modal-body"></div>
                 <div class="modal-footer">
                   <button
+                    id="empty-button"
                     type="button"
                     class="btn btn-secondary"
                     data-bs-dismiss="modal"
                   >
-                    Close cart
+                    Empty cart
                   </button>
                   <button
                     type="button"
@@ -122,16 +126,26 @@
                   Products
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="./mens-clothing.html">Ropa de Hombre</a></li>
-                  <li><a class="dropdown-item" href="./womens-clothing.html">Ropa de Mujer</a></li>
-                  <li><a class="dropdown-item" href="./electronics.html">Electrónica</a></li>
-                  <li><a class="dropdown-item" href="./jewelery.html">Accesorios</a></li>
+                    <li><a class="dropdown-item" href="./mens-clothing.html">Ropa de Hombre</a></li>
+                    <li><a class="dropdown-item" href="./womens-clothing.html">Ropa de Mujer</a></li>
+                    <li><a class="dropdown-item" href="./electronics.html">Electrónica</a></li>
+                    <li><a class="dropdown-item" href="./jewelery.html">Accesorios</a></li>
                 </ul>
               </li>
-              <!-- Search Bar -->
-              <input type="text" id="search-input" placeholder="Buscar">
-              <button id="search-button" class="btn btn-primary">Buscar</button>
-              <!-- End Sear Bar -->
+              <form class="d-flex search-bar-container">
+                <input
+                  class="form-control"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+                <button
+                  class="btn btn-outline-success search-button"
+                  type="submit"
+                >
+                  <i class="bi bi-search"></i>
+                </button>
+              </form>
             </ul>
           </div>
         </div>
@@ -140,83 +154,30 @@
     <!-- End Navbar -->
     <main>
       <!-- SLIDER -->
-      <div class="contenedor-slider">
-        <div class="slider-izquierdo">
-          <img
-            decoding="async"
-            src=".//assets/img/flecha izquierda.png"
-            alt=""
-          />
-        </div>
-
-        <div class="slider-screen">
-          <img name="Imagen" />
-        </div>
-
-        <div class="slider-derecho">
-          <img decoding="async" src=".//assets/img/flecha derecha.png" alt="" />
-        </div>
+     <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
       </div>
-      <!-- Form -->
-      <div class="container text-center form-container">
-        <h2 class="">¿Queres sumarte a nuestra tienda online?</h2>
-        <div class="col">
-          <form class="register-form">
-            <h2>Contactanos</h2>
-            <input
-              class="info"
-              type="text"
-              name="nombres"
-              id="name"
-              placeholder="Ingrese su Nombre"
-              required
-              maxlength="20"
-            />
-            <input
-              class="info"
-              type="text"
-              name="apellidos"
-              id="last-name"
-              placeholder="Ingrese su Apellido"
-              required
-              maxlength="20"
-            />
-            <input
-              class="info"
-              type="email"
-              name="correo"
-              id="mail"
-              placeholder="Ingrese su Correo"
-              required
-              maxlength="20"
-            />
-            <input
-              class="info"
-              type="text"
-              name="telefono"
-              id="telephone"
-              placeholder="Ingrese su Telefono"
-              maxlength="14"
-            />
-            <p>
-              <label
-                ><input type="checkbox" id="cbox1" value="first_checkbox" />
-                Estoy de acuerdo con</label
-              ><a href="#"> Términos y Condiciones</a>
-            </p>
-            <input class="botons" type="submit" value="Enviar" />
-            <p><a href="#">¿Ya tengo cuenta?</a></p>
+      <!-- Products -->
+      <div id="products-container" class="products-container-div"></div>
+       <!--Botón Suscribirse-->
+      <div class="container-sub">
+        <div class="conten-sub">
+          <h2>Suscríbete a nuestras notificaciones</h2>
+          <p>Entérate de nuestras promociones y beneficios</p>
+          <form action="#"> 
+              <input type="email" class="data" placeholder="Introduce tu correo electrónico" maxlength="25" required>
+              <input type="submit" value="Suscribirme" class="btn-sub">
           </form>
-        </div>
-      </div>
     </main>
-    <footer id="footer-container"> </footer>
+    <!-- Footer -->
+    <footer>
+      <div class="footer-info" id="footer-container"></div>
+    </footer>
     <!-- Bootstrap -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
-    ></script>
-  </body>
-  <script src="./scripts/index.js"></script>
+    ></script>    
+</body>
+<script src="./scripts/jewlery.js"></script> 
 </html>

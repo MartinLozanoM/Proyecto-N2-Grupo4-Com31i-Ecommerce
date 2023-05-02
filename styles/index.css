@@ -197,26 +197,30 @@
 footer {
   background-color: #304269;
   padding: 20px;
-}
-
-.footer-info-color {
-  color: white;
-}
-
-.footer-info-items {
   display: flex;
-  justify-content: center;
-  text-align: center;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.card-footer { 
+  background-color: #ffffff;
+  width: 18%;
+  color: #6f6f6f;
+ 
+}
+.footer-card-title{ 
+  width: 100%;
+  
+}
+.footer-card-icons {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.footer-card-icons a {
+  color: #6f6f6f
 }
 
-.footer-info-items div p {
-  margin: 0;
-}
-
-.footer-info-items div a {
-  text-decoration: none;
-  color: white;
-}
 /* ------------- End Footer ------------- */
 
 /* ------------- Start Slider ----------- */
