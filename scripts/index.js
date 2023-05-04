@@ -28,9 +28,10 @@
 // -------- End Navbar -------
 //Start Slider
 const imagenes = [
-  "./assets/img/Slider1.png",
-  "./assets/img/Slider2.png",
-  "./assets/img/Slider3.png",
+  "./assets/img/sliderElectronico.jpg",
+  "./assets/img/ropahombre.jpg",
+  "./assets/img/women.jpg",
+  "./assets/img/accesorioslider.png",
 ];
 
 document.Imagen.src = imagenes[0];

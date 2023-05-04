@@ -2,10 +2,10 @@ const sliderConteiner = document.getElementById("carouselExampleAutoplaying");
 
 const imagenSlider = [
   {
-    images1: "./assets/img/slider1.jpg",
-    images2: "./assets/img/slide3-image-1.webp",
-    images3: "./assets/img/slide2-image-3.jpeg",
-    images4: "./assets/img/slider4.jpg",
+    images1: "./assets/img/sliderElectronico.jpg",
+    images2: "./assets/img/ropahombre.jpg",
+    images3: "./assets/img/women.jpg",
+    images4: "./assets/img/accesorioslider.png",
   },
 ];
 
@@ -395,13 +395,13 @@ const itemFooter = [
 
   {
     name: "Andrea Toledo",
-    profileLinkedin: "",
-    profileGithub: "",
+    profileLinkedin: "https://www.linkedin.com/in/andreatoledopintor/",
+    profileGithub: "https://github.com/andretoledo22",
   },
 
   {
     name: "Agustín Lizarraga",
-    profileLinkedin: "",
+    profileLinkedin: "https://www.linkedin.com/in/agustin-eduardo-lizarraga-1a9278275/",
     profileGithub: "https://github.com/AgustinLizarraga",
   },
 ];
