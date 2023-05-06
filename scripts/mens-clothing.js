@@ -356,7 +356,6 @@ const cartUpdate = () => {
   });
   counterIconCart.innerText = cart.length;
 };
-
 // ------- Delete Product in the cart -------
 const deleteItemFromCart = (prodId) => {
   const item = products.find((prod) => prod.id === prodId);
@@ -373,7 +372,7 @@ emptyButton.addEventListener("click", () => {
 // ------- Cart Counter -------
 const counterIconCart = document.getElementById("cart-icon-counter");
 
-// -------- End Navbar -------
+// -------- End Cart -------
 
 //footer
 const containerFooter = document.getElementById("footer-container");

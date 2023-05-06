@@ -315,7 +315,24 @@ renderProducts(products);
 
 // ------- Cart -------
 
-let cart = [];
+let cart;
+
+const dataLS = localStorage.getItem("cart");
+
+const productInCartLS = JSON.parse(dataLS);
+
+if (productInCartLS) {
+  cart = productInCartLS;
+} else {
+  cart = [];
+}
+
+window.onload = () => {
+  if (dataLS) {
+    cart = JSON.parse(dataLS);
+    cartUpdate();
+  }
+};
 
 // ------- Add Products in the cart-Array -------
 const addCart = (prodId) => {
@@ -328,6 +345,8 @@ const addCart = (prodId) => {
     const item = products.find((prod) => prod.id === prodId);
     cart.push(item);
   }
+  counterCart++;
+  updateCounterCart;
   cartUpdate();
 };
 // ------- Add Products in the cart-divs -------
@@ -348,6 +367,7 @@ const cartUpdate = () => {
   `;
     cartContainer.appendChild(div);
   });
+  localStorage.setItem("cart", JSON.stringify(cart));
   counterIconCart.innerText = cart.length;
 };
 // ------- Delete Product in the cart -------
@@ -355,18 +375,24 @@ const deleteItemFromCart = (prodId) => {
   const item = products.find((prod) => prod.id === prodId);
   const index = cart.indexOf(item);
   cart.splice(index, 1);
+  counterCart--;
+  updateCounterCart();
   cartUpdate();
 };
 // ------- Delete All Products in the cart -------
 const emptyButton = document.getElementById("empty-button");
 emptyButton.addEventListener("click", () => {
-  cart.length = 0;
+  updateCounterCart();
   cartUpdate();
 });
 // ------- Cart Counter -------
 const counterIconCart = document.getElementById("cart-icon-counter");
+let counterCart = 0;
+const updateCounterCart = () => {
+  counterIconCart.textContent = counterCart;
+};
 
-// -------- End Navbar -------
+// -------- End Cart -------
 
 //footer
 const containerFooter = document.getElementById("footer-container");

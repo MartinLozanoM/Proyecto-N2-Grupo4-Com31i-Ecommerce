@@ -27,10 +27,10 @@
           <!-- Logo -->
           <a class="navbar-brand logo-rm" href="./index.html">
             <img
-              src="./assets/img/descarga.png"
+              src="./assets/img/LOGO SVG.svg"
               alt=""
-              width="100"
-              height="50"
+              width="500"
+              height="145"
             />
           </a>
           <!-- User -->
@@ -44,7 +44,9 @@
             data-bs-toggle="modal"
             data-bs-target="#exampleModal"
           >
-            <i class="bi bi-cart-fill"></i>
+            <i class="bi bi-cart-fill">
+              <span id="cart-icon-counter">0</span>
+            </i>
           </button>
           <!-- Modal Cart -->
           <div
@@ -65,24 +67,21 @@
                     aria-label="Close"
                   ></button>
                 </div>
-                <div class="modal-body producto-in-cart">
-                  <p>Product</p>
-                  <p>Total:</p>
-                  <p>Price:</p>
-                  <button type="button" class="btn btn-danger">
-                    <i class="bi bi-trash-fill"></i>
-                  </button>
-                </div>
+                <div id="modal-cart-main" class="modal-body"></div>
                 <div class="modal-footer">
                   <button
+                    id="empty-button"
                     type="button"
                     class="btn btn-secondary"
                     data-bs-dismiss="modal"
                   >
-                    Close cart
+                    Empty cart
                   </button>
-                  <button type="button" class="btn btn-primary">
-                    View cart
+                  <button
+                    type="button"
+                    class="btn btn-primary view-cart-button"
+                  >
+                    <a href="./cart.html">View cart</a>
                   </button>
                 </div>
               </div>
@@ -126,10 +125,25 @@
                   Products
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="#">Clothes</a></li>
-                  <li><a class="dropdown-item" href="#">Food</a></li>
                   <li>
-                    <a class="dropdown-item" href="#">Tecnology</a>
+                    <a class="dropdown-item" href="./mens-clothing.html"
+                      >Ropa de Hombre</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="./womens-clothing.html"
+                      >Ropa de Mujer</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="./electronics.html"
+                      >Electrónica</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="./jewelery.html"
+                      >Accesorios</a
+                    >
                   </li>
                 </ul>
               </li>
@@ -153,80 +167,17 @@
       </nav>
     </header>
     <!-- End Navbar -->
-    <main></main>
-    <!-- Start Footer -->
-    <footer>
-      <div class="footer-info">
-        <div class="footer-info-items">
-          <div class="col-8">
-            <p class="footer-info-color">Martin Lozano Muñoz</p>
-          </div>
-          <div class="col-4">
-            <a href="https://github.com/MartinLozanoM" target="_blank">
-              <i class="bi bi-github"></i>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/martin-lozano-mu%C3%B1oz-bbb545235"
-            >
-              <i class="bi bi-linkedin"></i>
-            </a>
-          </div>
-        </div>
-        <div class="footer-info-items">
-          <div class="col-8">
-            <p class="footer-info-color">Bernardo Villafañe</p>
-          </div>
-          <div class="col-4">
-            <a href="https://github.com/Berni011" target="_blank">
-              <i class="bi bi-github"></i>
-            </a>
-            <a href="">
-              <i class="bi bi-linkedin"></i>
-            </a>
-          </div>
-        </div>
-        <div class="footer-info-items">
-          <div class="col-8">
-            <p class="footer-info-color">Daniela Quirogaa</p>
-          </div>
-          <div class="col-4">
-            <a href="https://github.com/DanielaQuiroga15" target="_blank">
-              <i class="bi bi-github"></i>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/daniela-artaza-quiroga-403b3a218/"
-            >
-              <i class="bi bi-linkedin"></i>
-            </a>
-          </div>
-        </div>
-        <div class="footer-info-items">
-          <div class="col-8">
-            <p class="footer-info-color">Andrea Toledo</p>
-          </div>
-          <div class="col-4">
-            <a href="https://github.com/DanielaQuiroga15" target="_blank">
-              <i class="bi bi-github"></i>
-            </a>
-            <a href="">
-              <i class="bi bi-linkedin"></i>
-            </a>
-          </div>
-        </div>
-        <div class="footer-info-items">
-          <div class="col-8">
-            <p class="footer-info-color">Agustin Lizarraga</p>
-          </div>
-          <div class="col-4">
-            <a href="https://github.com/AgustinLizarraga" target="_blank">
-              <i class="bi bi-github"></i>
-            </a>
-            <a href="">
-              <i class="bi bi-linkedin"></i>
-            </a>
-          </div>
+    <main>
+      <div id="cart-container" class="cart-container">
+        <p id="empty-cart" class="empty-cart">Tu carrito esta vacio</p>
+        <div id="cart-products" class="cart-products disabled">
+          Carrito de compras
         </div>
       </div>
+    </main>
+    <!-- Start Footer -->
+    <footer>
+      <div class="footer-info" id="footer-container"></div>
     </footer>
     <!-- End Footer -->
     <script
@@ -235,4 +186,5 @@
       crossorigin="anonymous"
     ></script>
   </body>
+  <script src="./scripts/cart.js"></script>
 </html>
