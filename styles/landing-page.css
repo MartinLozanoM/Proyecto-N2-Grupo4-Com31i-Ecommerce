@@ -1,4 +1,4 @@
-/* --- agustin --- */
+/* --- Cards Andrea --- */
 .products-container-div{
     margin-top: 1.5rem;
     justify-content: space-between;
@@ -32,20 +32,16 @@
     margin-left: 5rem;
 }
 
-/* --- end agustin --- */
-/* --- andrea --- */
-.slider1, .slider2, .slider3, .slider4 img {
-    width: auto;
-    height: 700px;
-    min-width: 320px;
-    margin: 0 auto;
+/* --- end cards --- */
+/* --- Slider Andrea --- */
 
-}
+.carousel-item video{
+    margin: 10px;
+    width: 100%;
+    height: 600px;
+    object-position:center;
+  }
 
-.slider1, .slider2, .slider3, .slider4 {
-    display: flex;
-    justify-content: center;
-}
 
 
 

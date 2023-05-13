@@ -2,10 +2,9 @@ const sliderConteiner = document.getElementById("carouselExampleAutoplaying");
 
 const imagenSlider = [
   {
-    images1: "./assets/img/sliderElectronico.jpg",
-    images2: "./assets/img/ropahombre.jpg",
-    images3: "./assets/img/women.jpg",
-    images4: "./assets/img/accesorioslider.png",
+    images1: "./assets/img/slider-landing1.mp4",
+    images2: "./assets/img/slider-landing2.mp4",
+    images3: "./assets/img/slider-landing3.mp4",
   },
 ];
 
@@ -15,16 +14,16 @@ const renderSlider = (images) => {
     elementSlider.innerHTML = `
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="slider1" src=${images.images1} alt="Ropa y Accesorios">
+                <video width="640" height="360" autoplay muted loop
+                src=${images.images1}></video>
             </div>
             <div class="carousel-item">
-                <img class="slider2" src=${images.images2} alt="Electrodomésticos">
+                <video width="640" height="360" autoplay muted loop
+                src=${images.images2}></video>
             </div> 
             <div class="carousel-item">
-            <img class="slider3" src=${images.images3} alt="Consolas y Videojuegos">
-            </div> 
-            <div class="carousel-item">
-            <img class="slider4" src=${images.images4} alt="Muebles y Hogar">
+                <video width="640" height="360" autoplay muted loop
+                src=${images.images3}></video>
             </div> 
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
