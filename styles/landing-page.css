@@ -35,16 +35,19 @@
 /* --- end agustin --- */
 /* --- andrea --- */
 .slider1, .slider2, .slider3, .slider4 img {
-    width: auto;
+    width: 100%;
+    height: 20%;
     height: 700px;
     min-width: 320px;
     margin: 0 auto;
+   
 
 }
 
 .slider1, .slider2, .slider3, .slider4 {
     display: flex;
     justify-content: center;
+    
 }
 
 
