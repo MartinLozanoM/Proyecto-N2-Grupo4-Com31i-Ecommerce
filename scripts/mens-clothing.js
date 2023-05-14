@@ -373,33 +373,36 @@ const containerFooter = document.getElementById("footer-container");
 const itemFooter = [
   {
     name: "Martín Lozano Muñoz",
-    profileLinkedin:
-      "https://www.linkedin.com/in/martin-lozano-mu%C3%B1oz-bbb545235",
+    image: "./assets/img/martin.jpeg",
+    profileLinkedin:"https://www.linkedin.com/in/martin-lozano-mu%C3%B1oz-bbb545235",
     profileGithub: "https://github.com/MartinLozanoM",
   },
 
   {
     name: "Bernardo Villafañe",
-    profileLinkedin: "",
+    image:"./assets/img/bernardo.jpeg",
+    profileLinkedin: "https://www.linkedin.com/in/bernardo-villafa%C3%B1e-592267272",
     profileGithub: "https://github.com/Berni011",
   },
 
   {
     name: "Daniela Artaza Quiroga",
-    profileLinkedin:
-      "https://www.linkedin.com/in/daniela-artaza-quiroga-403b3a218/",
+    image:"./assets/img/daniela.jpeg",
+    profileLinkedin:"https://www.linkedin.com/in/daniela-artaza-quiroga-403b3a218/",
     profileGithub: "https://github.com/DanielaQuiroga15",
   },
 
   {
     name: "Andrea Toledo",
-    profileLinkedin: "",
-    profileGithub: "",
+    image:"./assets/img/andrea.jpeg",
+    profileLinkedin: "https://www.linkedin.com/in/andreatoledopintor/",
+    profileGithub: "https://github.com/andretoledo22",
   },
 
   {
     name: "Agustín Lizarraga",
-    profileLinkedin: "",
+    image:"./assets/img/agustin.jpeg",
+    profileLinkedin: "https://www.linkedin.com/in/agustin-eduardo-lizarraga-1a9278275/",
     profileGithub: "https://github.com/AgustinLizarraga",
   },
 ];
@@ -411,7 +414,7 @@ const renderFooter = (item) => {
     elementitem.classList.add("card-footer");
 
     elementitem.innerHTML = `
-
+    <img src="${item.image}" alt="${item.name}"> 
     <p class="footer-card-title text-center">${item.name}</p>
     <div class="footer-card-icons">
      <a  href="${item.profileGithub}" target="_blank"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"  viewBox="0 0 16 16">
