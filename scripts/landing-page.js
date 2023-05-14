@@ -317,6 +317,8 @@ renderProducts(products);
 
 let cart;
 
+let counterCart = 0;
+
 const dataLS = localStorage.getItem("cart");
 
 const productInCartLS = JSON.parse(dataLS);
@@ -329,8 +331,10 @@ if (productInCartLS) {
 
 window.onload = () => {
   if (dataLS) {
-    cart = JSON.parse(dataLS);
+    cart = productInCartLS;
+    counterCart = totalQuantity;
     cartUpdate();
+    console.log(cart.length);
   }
 };
 
@@ -346,14 +350,13 @@ const addCart = (prodId) => {
     cart.push(item);
   }
   counterCart++;
-  updateCounterCart;
   cartUpdate();
 };
 // ------- Add Products in the cart-divs -------
-const cartContainer = document.getElementById("modal-cart-main");
+const cartModalContainer = document.getElementById("modal-cart-main");
 // ------- Cart Update -------
 const cartUpdate = () => {
-  cartContainer.innerHTML = "";
+  cartModalContainer.innerHTML = "";
   cart.forEach((prod) => {
     const div = document.createElement("div");
     div.classList.add("product-in-cart");
@@ -365,33 +368,38 @@ const cartUpdate = () => {
       <i class="bi bi-trash-fill"></i>
       </button>
   `;
-    cartContainer.appendChild(div);
+    cartModalContainer.appendChild(div);
   });
   localStorage.setItem("cart", JSON.stringify(cart));
-  counterIconCart.innerText = cart.length;
+  updateCounterCart();
 };
 // ------- Delete Product in the cart -------
 const deleteItemFromCart = (prodId) => {
   const item = products.find((prod) => prod.id === prodId);
   const index = cart.indexOf(item);
   cart.splice(index, 1);
-  counterCart--;
-  updateCounterCart();
+  if (item.quantity > 1) {
+    counterCart -= item.quantity;
+  } else {
+    counterCart--;
+  }
   cartUpdate();
 };
 // ------- Delete All Products in the cart -------
 const emptyButton = document.getElementById("empty-button");
 emptyButton.addEventListener("click", () => {
-  updateCounterCart();
+  localStorage.clear();
+  cart = [];
+  counterCart = 0;
   cartUpdate();
 });
 // ------- Cart Counter -------
 const counterIconCart = document.getElementById("cart-icon-counter");
-let counterCart = 0;
 const updateCounterCart = () => {
   counterIconCart.textContent = counterCart;
 };
-
+const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+console.log(counterCart);
 // -------- End Cart -------
 
 //footer

@@ -71,6 +71,24 @@
 .disabled {
   display: none;
 }
+
+.cart-products {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-product {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+}
+
+.cart-product p {
+  margin: 0;
+}
 /* End Cart */
 
 .menu-items li a {
