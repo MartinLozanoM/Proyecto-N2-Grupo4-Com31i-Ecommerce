@@ -433,3 +433,24 @@ const renderFooter = (item) => {
 };
 renderFooter(itemFooter);
 //End Footer
+// Start Search Bar
+const searchInput = document.getElementById("search-input");
+const searchButton = document.getElementById("search-button");
+
+const searchProducts = () => {
+  const searchTerm = searchInput.value.toLowerCase();
+
+  // Filtramos los productos basándonos en el término de búsqueda
+  const filteredProducts = products.filter((product) => {
+    return (
+      product.title.toLowerCase().includes(searchTerm) ||
+      product.description.toLowerCase().includes(searchTerm)
+    );
+  });
+
+  // Renderizamos los resultados
+  renderProducts(filteredProducts);
+};
+
+// Evento para cuando se hace clic en el botón de búsqueda
+searchButton.addEventListener("click", searchProducts);
