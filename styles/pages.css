@@ -9,7 +9,7 @@
 
 .card {
     display: flex;
-    flex-direction: wrap;
+    /* flex-direction: wrap; */
 }
 
 .card-title{
@@ -35,6 +35,7 @@
 
 .button-add{
     margin-left: 5rem;
+    background-color:  #198754;
 }
 
 /* --- end agustin --- */
