@@ -150,3 +150,15 @@ body {
     background: #145838;
 }
 /* --- end andrea --- */
+/* Button Search Bar */
+.color-green{
+    background-color:#198754;
+    color: white;
+  }
+
+  .color-green:hover,
+.color-green:active,
+.color-green:focus {
+  background-color: #198754;
+  color: white;
+}
