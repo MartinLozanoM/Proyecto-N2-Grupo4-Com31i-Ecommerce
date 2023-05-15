@@ -290,6 +290,7 @@ const renderProducts = (products) => {
     productElement.classList.add("d-flex");
 
     productElement.innerHTML = `
+           <div class="card-container" >
             <div class="card" style="width: 18rem; height: 25rem;">
                 <img src=${product.image} class="card-img-top image-product" alt=${product.title}>
                 <div class="card-body">
@@ -437,8 +438,15 @@ let cart = [];
 
 // ------- Add Products in the cart-Array -------
 const addCart = (prodId) => {
-  const item = products.find((prod) => prod.id === prodId);
-  cart.push(item);
+  const itemIndex = cart.findIndex((item) => item.id === prodId); // Encuentra el índice del producto en el carrito, si existe
+  if (itemIndex !== -1) {
+    // Si el producto ya está en el carrito, aumenta su cantidad
+    cart[itemIndex].quantity += 1;
+  } else {
+    // Si el producto no está en el carrito, agrega un nuevo objeto de producto con cantidad 1
+    const item = products.find((prod) => prod.id === prodId);
+    cart.push(item);
+  }
   cartUpdate();
 };
 // ------- Add Products in the cart-divs -------
@@ -451,7 +459,7 @@ const cartUpdate = () => {
     div.classList.add("product-in-cart");
     div.innerHTML = `
       <p>${prod.title}</p>
-      <p>Total: <span id="total-product">${prod.cantidad}</span></p>
+      <p>Quantity: <span id="total-product">${prod.quantity}</span></p>
       <p>Price: $${prod.price}</p>
       <button onclick ="deleteItemFromCart(${prod.id})" type="button" class="btn btn-danger">
       <i class="bi bi-trash-fill"></i>
@@ -461,7 +469,6 @@ const cartUpdate = () => {
   });
   counterIconCart.innerText = cart.length;
 };
-
 // ------- Delete Product in the cart -------
 const deleteItemFromCart = (prodId) => {
   const item = products.find((prod) => prod.id === prodId);
@@ -478,7 +485,7 @@ emptyButton.addEventListener("click", () => {
 // ------- Cart Counter -------
 const counterIconCart = document.getElementById("cart-icon-counter");
 
-// -------- End Navbar -------
+// -------- End Cart -------
 
 //footer
 const containerFooter = document.getElementById("footer-container");
@@ -552,7 +559,7 @@ const searchButton = document.getElementById("search-button");
 
 const searchProducts = () => {
   const searchTerm = searchInput.value.toLowerCase();
-
+  
   // Filtramos los productos basándonos en el término de búsqueda
   const filteredProducts = products.filter((product) => {
     return (
