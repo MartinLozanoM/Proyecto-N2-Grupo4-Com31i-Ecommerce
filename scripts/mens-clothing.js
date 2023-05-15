@@ -290,6 +290,7 @@ const renderProducts = (products) => {
     productElement.classList.add("d-flex");
 
     productElement.innerHTML = `
+            <div class="card-container" >
             <div class="card" style="width: 18rem; height: 25rem;">
                 <img src=${product.image} class="card-img-top image-product" alt=${product.title}>
                 <div class="card-body">

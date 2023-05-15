@@ -46,37 +46,11 @@ body {
     display: flex;
     justify-content: center;
 }
+.card { 
+    border: 0px solid #000000;
+}
 
 /* --- End Cards --- */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /* --- end cards --- */
