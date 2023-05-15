@@ -295,7 +295,7 @@ const renderProducts = (products) => {
                     <h5 class="card-title">${product.title}</h5>
                     <p class="card-text">${product.description}</p>
                     <p class="price-price-mobile">$ ${product.price}</p>
-                    <button id="button-counter-${product.id}" class="btn btn-primary button-add">Agregar</button>
+                    <button id="button-counter-${product.id}" class="btn btn-primary1 button-add">Agregar</button>
                 </div>
             </div>
         `;
