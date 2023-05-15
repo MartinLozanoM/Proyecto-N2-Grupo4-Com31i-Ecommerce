@@ -1,16 +1,14 @@
 body {
   background-color: rgb(198 201 207);
 }
-
-/* --- Slider Andrea --- */
-.carousel-item video {
-  margin: 10px;
-  width: 100%;
-  height: 600px;
-  object-position: center;
-}
-
-/* --- Cards Andrea --- */
+  /* --- */
+  .carousel-item video {
+    margin: 10px;
+    width: 100%;
+    height: 600px;
+    object-position:center;
+  }
+/* --- Cards --- */
 
 .card-container {
   width: 330px;
