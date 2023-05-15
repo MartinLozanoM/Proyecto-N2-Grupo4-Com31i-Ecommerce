@@ -263,6 +263,7 @@ const productsStore = [
       count: 130,
     },
   },
+
 ];
 const productsContainer = document.getElementById("products-container");
 console.log(productsContainer);

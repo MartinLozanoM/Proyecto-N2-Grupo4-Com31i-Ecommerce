@@ -49,7 +49,7 @@ const productsStore = [
   {
     id: 1,
     title: "Bolso Azul",
-    price: 5500,
+    price: 109.95,
     description: "Bolso color Azul con 4 bolsillos.",
     category: "men's clothing",
     image: "https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg",
@@ -61,8 +61,8 @@ const productsStore = [
   {
     id: 2,
     title: "Remera hombre",
-    price: 3500,
-    description: "Remera Hombre blanca y negra.",
+    price: 22.3,
+    description: "Remera Hombre blanca con mangas negras.",
     category: "men's clothing",
     image:
       "https://fakestoreapi.com/img/71-3HjGNDUL._AC_SY879._SX._UX._SY._UY_.jpg",
@@ -74,8 +74,8 @@ const productsStore = [
   {
     id: 3,
     title: "Chaqueta hombre",
-    price: 20000,
-    description: "Chaqueta hombre marrón invierno.",
+    price: 55.99,
+    description: "Chaqueta hombre marron invierno.",
     category: "men's clothing",
     image: "https://fakestoreapi.com/img/71li-ujtlUL._AC_UX679_.jpg",
     rating: {
@@ -85,9 +85,9 @@ const productsStore = [
   },
   {
     id: 4,
-    title: "Térmica hombre",
-    price: 6000,
-    description: "Térmica slim fit.",
+    title: "Termica hombre",
+    price: 15.99,
+    description: "Termica slim fit.",
     category: "men's clothing",
     image: "https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg",
     rating: {
@@ -97,9 +97,9 @@ const productsStore = [
   },
   {
     id: 5,
-    title: "Pulsera dragón",
-    price: 35000,
-    description: "Pulsera de plata con cabeza de dragón.",
+    title: "Pulsera dragon",
+    price: 695,
+    description: "Pulsera de plata con cabeza de dragon.",
     category: "jewelery",
     image: "https://fakestoreapi.com/img/71pWzhdJNwL._AC_UL640_QL65_ML3_.jpg",
     rating: {
@@ -110,7 +110,7 @@ const productsStore = [
   {
     id: 6,
     title: "Anillo She",
-    price: 12000,
+    price: 168,
     description: "Anillo plata.",
     category: "jewelery",
     image: "https://fakestoreapi.com/img/61sbMiUnoGL._AC_UL640_QL65_ML3_.jpg",
@@ -122,7 +122,7 @@ const productsStore = [
   {
     id: 7,
     title: "Anillo Princess",
-    price: 9500,
+    price: 9.99,
     description: "Anillo de plata con piedra brillosa.",
     category: "jewelery",
     image: "https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg",
@@ -134,7 +134,7 @@ const productsStore = [
   {
     id: 8,
     title: "Aros",
-    price: 10500,
+    price: 10.99,
     description: "Aros de oro rosa.",
     category: "jewelery",
     image: "https://fakestoreapi.com/img/51UDEzMJVpL._AC_UL640_QL65_ML3_.jpg",
@@ -146,8 +146,8 @@ const productsStore = [
   {
     id: 9,
     title: "Disco externo",
-    price: 29500,
-    description: "Disco externo 1TB negro",
+    price: 64,
+    description: "Disco externo compatible con USB 3.0 y USB 2.0.",
     category: "electronics",
     image: "https://fakestoreapi.com/img/61IBBVJvSDL._AC_SY879_.jpg",
     rating: {
@@ -158,7 +158,7 @@ const productsStore = [
   {
     id: 10,
     title: "Memoria interna",
-    price: 14000,
+    price: 109,
     description: "Memoria interna SanDisk SSD plus.",
     category: "electronics",
     image: "https://fakestoreapi.com/img/61U7T1koQqL._AC_SX679_.jpg",
@@ -169,9 +169,9 @@ const productsStore = [
   },
   {
     id: 11,
-    title: "Unidad de Estado Sólido",
-    price: 30000,
-    description: "Unidad de estado sólido 256GB SSD.",
+    title: "Unidad de Estado Solido",
+    price: 109,
+    description: "Unidad de estado solido 256GB SSD.",
     category: "electronics",
     image: "https://fakestoreapi.com/img/71kWymZ+c+L._AC_SX679_.jpg",
     rating: {
@@ -182,7 +182,7 @@ const productsStore = [
   {
     id: 12,
     title: "Disco duro externo",
-    price: 29000,
+    price: 114,
     description: "Disco duro externo ideal para consolas.",
     category: "electronics",
     image: "https://fakestoreapi.com/img/61mtL65D4cL._AC_SX679_.jpg",
@@ -194,7 +194,7 @@ const productsStore = [
   {
     id: 13,
     title: "Monitor Acer",
-    price: 50000,
+    price: 599,
     description: "Monitor Acer 21 pulgadas Full HD.",
     category: "electronics",
     image: "https://fakestoreapi.com/img/81QpkIctqPL._AC_SX679_.jpg",
@@ -206,7 +206,7 @@ const productsStore = [
   {
     id: 14,
     title: "Monitor Samsung",
-    price: 91200,
+    price: 999.99,
     description: "Monitor Samsung 27 pulgadas Full HD.",
     category: "electronics",
     image: "https://fakestoreapi.com/img/81Zt42ioCgL._AC_SX679_.jpg",
@@ -218,7 +218,7 @@ const productsStore = [
   {
     id: 15,
     title: "Campera deportiva mujer.",
-    price: 21800,
+    price: 56.99,
     description: "Campera Slim Fit morada",
     category: "women's clothing",
     image: "https://fakestoreapi.com/img/51Y5NI-I5jL._AC_UX679_.jpg",
@@ -230,7 +230,7 @@ const productsStore = [
   {
     id: 16,
     title: "Chaqueta mujer",
-    price: 35000,
+    price: 29.95,
     description: "Chaqueta de cuero con capucha.",
     category: "women's clothing",
     image: "https://fakestoreapi.com/img/81XH0e8fefL._AC_UY879_.jpg",
@@ -242,7 +242,7 @@ const productsStore = [
   {
     id: 17,
     title: "Sobretodo mujer",
-    price: 45000,
+    price: 39.99,
     description: "Sobretodo color azul.",
     category: "women's clothing",
     image: "https://fakestoreapi.com/img/71HblAHs5xL._AC_UY879_-2.jpg",
@@ -254,8 +254,8 @@ const productsStore = [
   {
     id: 18,
     title: "Remera mujer",
-    price: 3500,
-    description: "Remera 100% algodón.",
+    price: 9.85,
+    description: "Remera 100% algodon.",
     category: "women's clothing",
     image: "https://fakestoreapi.com/img/71z3kpMAYsL._AC_UY879_.jpg",
     rating: {
@@ -263,6 +263,7 @@ const productsStore = [
       count: 130,
     },
   },
+
 ];
 const productsContainer = document.getElementById("products-container");
 console.log(productsContainer);
