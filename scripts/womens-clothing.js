@@ -263,7 +263,6 @@ const productsStore = [
       count: 130,
     },
   },
-  
 ];
 const productsContainer = document.getElementById("products-container");
 console.log(productsContainer);
@@ -318,10 +317,9 @@ const womensClothingProducts = getProductsByCategory("women's clothing");
 
 renderProducts(womensClothingProducts);
 
-
 //End-products
 
-//products Daniela 
+//products Daniela
 // const itemProducts = [
 
 //   {
@@ -431,10 +429,30 @@ renderProducts(womensClothingProducts);
 
 //end Products daniela
 
-
 // ------- Cart -------
 
-let cart = [];
+let cart;
+
+let counterCart = 0;
+
+const dataLS = localStorage.getItem("cart");
+
+const productInCartLS = JSON.parse(dataLS);
+
+if (productInCartLS) {
+  cart = productInCartLS;
+} else {
+  cart = [];
+}
+
+window.onload = () => {
+  if (dataLS) {
+    cart = productInCartLS;
+    counterCart = totalQuantity;
+    cartUpdate();
+    console.log(cart.length);
+  }
+};
 
 // ------- Add Products in the cart-Array -------
 const addCart = (prodId) => {
@@ -447,13 +465,14 @@ const addCart = (prodId) => {
     const item = products.find((prod) => prod.id === prodId);
     cart.push(item);
   }
+  counterCart++;
   cartUpdate();
 };
 // ------- Add Products in the cart-divs -------
-const cartContainer = document.getElementById("modal-cart-main");
+const cartModalContainer = document.getElementById("modal-cart-main");
 // ------- Cart Update -------
 const cartUpdate = () => {
-  cartContainer.innerHTML = "";
+  cartModalContainer.innerHTML = "";
   cart.forEach((prod) => {
     const div = document.createElement("div");
     div.classList.add("product-in-cart");
@@ -465,26 +484,38 @@ const cartUpdate = () => {
       <i class="bi bi-trash-fill"></i>
       </button>
   `;
-    cartContainer.appendChild(div);
+    cartModalContainer.appendChild(div);
   });
-  counterIconCart.innerText = cart.length;
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCounterCart();
 };
 // ------- Delete Product in the cart -------
 const deleteItemFromCart = (prodId) => {
   const item = products.find((prod) => prod.id === prodId);
   const index = cart.indexOf(item);
   cart.splice(index, 1);
+  if (item.quantity > 1) {
+    counterCart -= item.quantity;
+  } else {
+    counterCart--;
+  }
   cartUpdate();
 };
 // ------- Delete All Products in the cart -------
 const emptyButton = document.getElementById("empty-button");
 emptyButton.addEventListener("click", () => {
-  cart.length = 0;
+  localStorage.clear();
+  cart = [];
+  counterCart = 0;
   cartUpdate();
 });
 // ------- Cart Counter -------
 const counterIconCart = document.getElementById("cart-icon-counter");
-
+const updateCounterCart = () => {
+  counterIconCart.textContent = counterCart;
+};
+const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+console.log(counterCart);
 // -------- End Cart -------
 
 //footer
@@ -494,35 +525,39 @@ const itemFooter = [
   {
     name: "Martín Lozano Muñoz",
     image: "./assets/img/martin.jpeg",
-    profileLinkedin:"https://www.linkedin.com/in/martin-lozano-mu%C3%B1oz-bbb545235",
+    profileLinkedin:
+      "https://www.linkedin.com/in/martin-lozano-mu%C3%B1oz-bbb545235",
     profileGithub: "https://github.com/MartinLozanoM",
   },
 
   {
     name: "Bernardo Villafañe",
-    image:"./assets/img/bernardo.jpeg",
-    profileLinkedin: "https://www.linkedin.com/in/bernardo-villafa%C3%B1e-592267272",
+    image: "./assets/img/bernardo.jpeg",
+    profileLinkedin:
+      "https://www.linkedin.com/in/bernardo-villafa%C3%B1e-592267272",
     profileGithub: "https://github.com/Berni011",
   },
 
   {
     name: "Daniela Artaza Quiroga",
-    image:"./assets/img/daniela.jpeg",
-    profileLinkedin:"https://www.linkedin.com/in/daniela-artaza-quiroga-403b3a218/",
+    image: "./assets/img/daniela.jpeg",
+    profileLinkedin:
+      "https://www.linkedin.com/in/daniela-artaza-quiroga-403b3a218/",
     profileGithub: "https://github.com/DanielaQuiroga15",
   },
 
   {
     name: "Andrea Toledo",
-    image:"./assets/img/andrea.jpeg",
+    image: "./assets/img/andrea.jpeg",
     profileLinkedin: "https://www.linkedin.com/in/andreatoledopintor/",
     profileGithub: "https://github.com/andretoledo22",
   },
 
   {
     name: "Agustín Lizarraga",
-    image:"./assets/img/agustin.jpeg",
-    profileLinkedin: "https://www.linkedin.com/in/agustin-eduardo-lizarraga-1a9278275/",
+    image: "./assets/img/agustin.jpeg",
+    profileLinkedin:
+      "https://www.linkedin.com/in/agustin-eduardo-lizarraga-1a9278275/",
     profileGithub: "https://github.com/AgustinLizarraga",
   },
 ];
@@ -559,7 +594,7 @@ const searchButton = document.getElementById("search-button");
 
 const searchProducts = () => {
   const searchTerm = searchInput.value.toLowerCase();
-  
+
   // Filtramos los productos basándonos en el término de búsqueda
   const filteredProducts = products.filter((product) => {
     return (
