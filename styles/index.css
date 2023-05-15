@@ -1,5 +1,9 @@
 /* General Styles */
 /* ------------- Start Navbar ------------- */
+.logo-rm img {
+  width: 100px;
+  height: 50px;
+}
 .navbar-rm {
   background-color: #f9c231;
   color: black;
@@ -99,8 +103,17 @@
 }
 
 /*? --------- Media Queries --------- */
-
+@media (min-width: 768px) {
+  .logo-rm img {
+    width: 200px;
+    height: 60px;
+  }
+}
 @media (min-width: 900px) {
+  .logo-rm img {
+    width: 300px;
+    height: 70px;
+  }
   .navbar-container {
     display: grid !important;
     grid-template-areas: "logo logo logo menu menu menu menu menu user user cart cart";
@@ -205,10 +218,25 @@ footer {
   background-color: #ffffff;
   width: 18%;
   color: #6f6f6f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
  
+}
+.card-footer:nth-child(5){
+  border-radius: 10px;
+}
+
+.card-footer img {
+  width: 60px;
+  height: 60px;
+  border-radius: 100%;
+  object-fit: cover;
 }
 .footer-card-title{ 
   width: 100%;
+  color: #198754;
   
 }
 .footer-card-icons {
@@ -218,38 +246,47 @@ footer {
   justify-content: space-evenly;
 }
 .footer-card-icons a {
-  color: #6f6f6f
+  color: #198754;
 }
 
 /* ------------- End Footer ------------- */
 
 /* ------------- Start Slider ----------- */
-.contenedor-slider
-{
-    display: flex;
-    align-items: center;
-    gap: 40px;
-    max-width: 1200px;
-    padding: 0px 40px;
+.contenedor-slider {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  max-width: 1200px;
+  padding: 0px 40px;
 }
 
-.slider-izquierdo, .slider-derecho
-{
-    width: 5%;
+.slider-izquierdo,
+.slider-derecho {
+  width: 5%;
 }
 
-.slider-izquierdo img, .slider-derecho img
-{
-   width: 100%;
-
+.slider-izquierdo img,
+.slider-derecho img {
+  width: 100%;
 }
 
-.slider-screen
-{
-    width: 100%;
+.slider-screen {
+  width: 100%;
 }
 
 .slider-screen img
 {
     width: 100%;
+}
+/* Button Search Bar */
+.color-green{
+  background-color:#198754;
+  color: white;
+}
+
+.color-green:hover,
+.color-green:active,
+.color-green:focus {
+  background-color: #198754;
+  color: white;
 }

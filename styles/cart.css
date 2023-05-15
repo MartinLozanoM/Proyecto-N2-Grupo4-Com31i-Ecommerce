@@ -1,4 +1,9 @@
+/* General Styles */
 /* ------------- Start Navbar ------------- */
+.logo-rm img {
+  width: 100px;
+  height: 50px;
+}
 .navbar-rm {
   background-color: #f9c231;
   color: black;
@@ -33,17 +38,57 @@
 
 /* Start Cart */
 
-.producto-in-cart {
+.product-in-cart {
   display: flex;
   justify-content: space-around;
   align-items: center;
   text-align: center;
+  padding: 0.5rem;
 }
 
-.producto-in-cart p {
+.product-in-cart p {
   margin: 0;
 }
 
+.view-cart-button,
+.view-cart-button:focus {
+  background-color: #198754;
+  border: 1px solid #198754;
+}
+
+.view-cart-button:hover {
+  background-color: #198754;
+  border: 1px solid #198754;
+  color: white;
+  opacity: 0.9;
+}
+
+.view-cart-button a {
+  text-decoration: none;
+  color: white;
+}
+
+.disabled {
+  display: none;
+}
+
+.cart-products {
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-product {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+}
+
+.cart-product p {
+  margin: 0;
+}
 /* End Cart */
 
 .menu-items li a {
@@ -80,8 +125,17 @@
 }
 
 /*? --------- Media Queries --------- */
-
+@media (min-width: 768px) {
+  .logo-rm img {
+    width: 200px;
+    height: 60px;
+  }
+}
 @media (min-width: 900px) {
+  .logo-rm img {
+    width: 300px;
+    height: 70px;
+  }
   .navbar-container {
     display: grid !important;
     grid-template-areas: "logo logo logo menu menu menu menu menu user user cart cart";
@@ -114,7 +168,66 @@
     margin-top: 0;
   }
 }
+
 /* ------------- End Navbar ------------- */
+/* Start Form */
+.form-container {
+  border: 5px solid #198754;
+  border-radius: 25px;
+  margin-bottom: 1.5rem;
+  margin-top: 1.5rem;
+  padding: 1rem;
+}
+
+.register-form {
+  width: 100%;
+  padding: 30px;
+  border-radius: 4px;
+  color: #198754;
+}
+.register-form h2 {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+.info {
+  width: 100%;
+  background: #f4f4fd;
+  padding: 15px;
+  border: 0;
+  border-radius: 25px;
+  margin-bottom: 18px;
+  outline: none;
+}
+.register-form p {
+  height: 35px;
+  text-align: center;
+  font-size: 15px;
+  line-height: 35px;
+}
+.register-form a {
+  color: #323031;
+  text-decoration: none;
+}
+.register-form a:hover {
+  color: #198754;
+  text-decoration: underline;
+}
+.register-form .botons {
+  width: 100%;
+  background: #198754;
+  border: 0;
+  border-radius: 25px;
+  padding: 15px;
+  color: white;
+  margin-top: 25px;
+  font-size: 16px;
+  box-shadow: 0 0 20px rgba(201, 199, 253, 0.5);
+}
+.register-form .botons:hover {
+  background: #ffffff;
+  color: #198754;
+  border: 1px solid #198754;
+}
 /* ------------- Start Footer ------------- */
 footer {
   background-color: #304269;
@@ -140,3 +253,30 @@ footer {
   color: white;
 }
 /* ------------- End Footer ------------- */
+
+/* ------------- Start Slider ----------- */
+.contenedor-slider {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  max-width: 1200px;
+  padding: 0px 40px;
+}
+
+.slider-izquierdo,
+.slider-derecho {
+  width: 5%;
+}
+
+.slider-izquierdo img,
+.slider-derecho img {
+  width: 100%;
+}
+
+.slider-screen {
+  width: 100%;
+}
+
+.slider-screen img {
+  width: 100%;
+}

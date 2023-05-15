@@ -275,6 +275,7 @@ const products = productsStore.map((product) => {
     price: product.price,
     id: product.id,
     image: product.image,
+    quantity: 1,
   };
 });
 
@@ -289,6 +290,7 @@ const renderProducts = (products) => {
     productElement.classList.add("d-flex");
 
     productElement.innerHTML = `
+           <div class="card-container" >
             <div class="card" style="width: 18rem; height: 25rem;">
                 <img src=${product.image} class="card-img-top image-product" alt=${product.title}>
                 <div class="card-body">
@@ -320,52 +322,92 @@ renderProducts(electronicsProducts);
 
 // ------- Cart -------
 
-let cart = [];
+let cart;
+
+let counterCart = 0;
+
+const dataLS = localStorage.getItem("cart");
+
+const productInCartLS = JSON.parse(dataLS);
+
+if (productInCartLS) {
+  cart = productInCartLS;
+} else {
+  cart = [];
+}
+
+window.onload = () => {
+  if (dataLS) {
+    cart = productInCartLS;
+    counterCart = totalQuantity;
+    cartUpdate();
+    console.log(cart.length);
+  }
+};
 
 // ------- Add Products in the cart-Array -------
 const addCart = (prodId) => {
-  const item = products.find((prod) => prod.id === prodId);
-  cart.push(item);
+  const itemIndex = cart.findIndex((item) => item.id === prodId); // Encuentra el índice del producto en el carrito, si existe
+  if (itemIndex !== -1) {
+    // Si el producto ya está en el carrito, aumenta su cantidad
+    cart[itemIndex].quantity += 1;
+  } else {
+    // Si el producto no está en el carrito, agrega un nuevo objeto de producto con cantidad 1
+    const item = products.find((prod) => prod.id === prodId);
+    cart.push(item);
+  }
+  counterCart++;
   cartUpdate();
 };
 // ------- Add Products in the cart-divs -------
-const cartContainer = document.getElementById("modal-cart-main");
+const cartModalContainer = document.getElementById("modal-cart-main");
 // ------- Cart Update -------
 const cartUpdate = () => {
-  cartContainer.innerHTML = "";
+  cartModalContainer.innerHTML = "";
   cart.forEach((prod) => {
     const div = document.createElement("div");
     div.classList.add("product-in-cart");
     div.innerHTML = `
       <p>${prod.title}</p>
-      <p>Total: <span id="total-product">${prod.cantidad}</span></p>
+      <p>Quantity: <span id="total-product">${prod.quantity}</span></p>
       <p>Price: $${prod.price}</p>
       <button onclick ="deleteItemFromCart(${prod.id})" type="button" class="btn btn-danger">
       <i class="bi bi-trash-fill"></i>
       </button>
   `;
-    cartContainer.appendChild(div);
+    cartModalContainer.appendChild(div);
   });
-  counterIconCart.innerText = cart.length;
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCounterCart();
 };
-
 // ------- Delete Product in the cart -------
 const deleteItemFromCart = (prodId) => {
   const item = products.find((prod) => prod.id === prodId);
   const index = cart.indexOf(item);
   cart.splice(index, 1);
+  if (item.quantity > 1) {
+    counterCart -= item.quantity;
+  } else {
+    counterCart--;
+  }
   cartUpdate();
 };
 // ------- Delete All Products in the cart -------
 const emptyButton = document.getElementById("empty-button");
 emptyButton.addEventListener("click", () => {
-  cart.length = 0;
+  localStorage.clear();
+  cart = [];
+  counterCart = 0;
   cartUpdate();
 });
 // ------- Cart Counter -------
 const counterIconCart = document.getElementById("cart-icon-counter");
-
-// -------- End Navbar -------
+const updateCounterCart = () => {
+  counterIconCart.textContent = counterCart;
+};
+const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+console.log(counterCart);
+// -------- End Cart -------
 
 //footer
 const containerFooter = document.getElementById("footer-container");
@@ -373,6 +415,7 @@ const containerFooter = document.getElementById("footer-container");
 const itemFooter = [
   {
     name: "Martín Lozano Muñoz",
+    image: "./assets/img/martin.jpeg",
     profileLinkedin:
       "https://www.linkedin.com/in/martin-lozano-mu%C3%B1oz-bbb545235",
     profileGithub: "https://github.com/MartinLozanoM",
@@ -380,12 +423,15 @@ const itemFooter = [
 
   {
     name: "Bernardo Villafañe",
-    profileLinkedin: "",
+    image: "./assets/img/bernardo.jpeg",
+    profileLinkedin:
+      "https://www.linkedin.com/in/bernardo-villafa%C3%B1e-592267272",
     profileGithub: "https://github.com/Berni011",
   },
 
   {
     name: "Daniela Artaza Quiroga",
+    image: "./assets/img/daniela.jpeg",
     profileLinkedin:
       "https://www.linkedin.com/in/daniela-artaza-quiroga-403b3a218/",
     profileGithub: "https://github.com/DanielaQuiroga15",
@@ -393,13 +439,16 @@ const itemFooter = [
 
   {
     name: "Andrea Toledo",
-    profileLinkedin: "",
-    profileGithub: "",
+    image: "./assets/img/andrea.jpeg",
+    profileLinkedin: "https://www.linkedin.com/in/andreatoledopintor/",
+    profileGithub: "https://github.com/andretoledo22",
   },
 
   {
     name: "Agustín Lizarraga",
-    profileLinkedin: "",
+    image: "./assets/img/agustin.jpeg",
+    profileLinkedin:
+      "https://www.linkedin.com/in/agustin-eduardo-lizarraga-1a9278275/",
     profileGithub: "https://github.com/AgustinLizarraga",
   },
 ];
@@ -411,6 +460,7 @@ const renderFooter = (item) => {
     elementitem.classList.add("card-footer");
 
     elementitem.innerHTML = `
+    <img src="${item.image}" alt="${item.name}"> 
     <p class="footer-card-title text-center">${item.name}</p>
     <div class="footer-card-icons">
      <a  href="${item.profileGithub}" target="_blank"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"  viewBox="0 0 16 16">
@@ -429,3 +479,24 @@ const renderFooter = (item) => {
 };
 renderFooter(itemFooter);
 //End Footer
+// Start Search Bar
+const searchInput = document.getElementById("search-input");
+const searchButton = document.getElementById("search-button");
+
+const searchProducts = () => {
+  const searchTerm = searchInput.value.toLowerCase();
+
+  // Filtramos los productos basándonos en el término de búsqueda
+  const filteredProducts = products.filter((product) => {
+    return (
+      product.title.toLowerCase().includes(searchTerm) ||
+      product.description.toLowerCase().includes(searchTerm)
+    );
+  });
+
+  // Renderizamos los resultados
+  renderProducts(filteredProducts);
+};
+
+// Evento para cuando se hace clic en el botón de búsqueda
+searchButton.addEventListener("click", searchProducts);
