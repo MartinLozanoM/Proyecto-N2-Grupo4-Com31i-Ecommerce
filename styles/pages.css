@@ -40,9 +40,10 @@
 /* --- end agustin --- */
 /* --- andrea --- */
 .slider1, .slider2, .slider3, .slider4 img {
-    width: auto;
+    width:auto;
     height: 700px;
-    min-width: 320px;
+    min-width: 300px;
+    min-height: 100px;
     margin: 0 auto;
 
 }
@@ -118,3 +119,16 @@
     background: #145838;
 }
 /* --- end andrea --- */
+
+/* Button Search Bar */
+.color-green{
+    background-color:#198754;
+    color: white;
+  }
+
+  .color-green:hover,
+.color-green:active,
+.color-green:focus {
+  background-color: #198754;
+  color: white;
+}

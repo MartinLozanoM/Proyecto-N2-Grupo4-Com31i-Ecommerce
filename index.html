@@ -17,6 +17,7 @@
     />
     <!-- Styles -->
     <link rel="stylesheet" href="./styles/index.css" />
+    <link rel="stylesheet" href="./styles/landing-page.css">
     <title>Inicio</title>
   </head>
   <body>
@@ -52,7 +53,7 @@
             <div class="modal-dialog">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Your cart</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">Mi carrito</h5>
                   <button
                     type="button"
                     class="btn-close"
@@ -67,13 +68,13 @@
                     class="btn btn-secondary"
                     data-bs-dismiss="modal"
                   >
-                    Close cart
+                    Cerrar carrito
                   </button>
                   <button
                     type="button"
                     class="btn btn-primary view-cart-button"
                   >
-                    <a href="./cart.html">View cart</a>
+                    <a href="./cart.html">Ver Carrito</a>
                   </button>
                 </div>
               </div>
@@ -99,11 +100,11 @@
             <ul class="navbar-nav menu-items-list">
               <li class="nav-item">
                 <a class="nav-link" aria-current="page" href="./index.html"
-                  >Home</a
+                  >Inicio</a
                 >
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="./landing-page.html">Landing Page</a>
+                <a class="nav-link" href="./landing-page.html">Tienda</a>
               </li>
               <li class="nav-item dropdown products-menu">
                 <a
@@ -114,7 +115,7 @@
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Products
+                  Productos
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <li>
@@ -139,20 +140,10 @@
                   </li>
                 </ul>
               </li>
-              <form class="d-flex search-bar-container">
-                <input
-                  class="form-control"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
-                />
-                <button
-                  class="btn btn-outline-success search-button"
-                  type="submit"
-                >
-                  <i class="bi bi-search"></i>
-                </button>
-              </form>
+               <!-- Start Search Bar -->
+               <input type="text" id="search-input" placeholder="Buscar">
+               <button id="search-button" class="btn btn-primary color-green">Buscar</button>
+               <!-- End Search Bar -->
             </ul>
           </div>
         </div>
@@ -165,7 +156,7 @@
         <div class="slider-izquierdo">
           <img
             decoding="async"
-            src=".//assets/img/flecha izquierda.png"
+            src="./assets/img/flecha izquierda.png"
             alt=""
           />
         </div>
@@ -180,10 +171,10 @@
       </div>
       <!-- Form -->
       <div class="container text-center form-container">
-        <h2 class="">¿Queres sumarte a nuestra tienda online?</h2>
+        <h2 class="">¿Querés sumarte a nuestra tienda online?</h2>
         <div class="col">
           <form class="register-form">
-            <h2>Contactanos</h2>
+            <h2>Contáctanos</h2>
             <input
               class="info"
               type="text"
@@ -216,7 +207,7 @@
               type="text"
               name="telefono"
               id="telephone"
-              placeholder="Ingrese su Telefono"
+              placeholder="Ingrese su Teléfono"
               maxlength="14"
             />
             <p>
@@ -231,9 +222,7 @@
         </div>
       </div>
     </main>
-    <footer>
-      <div class="footer-info" id="footer-container"></div>
-    </footer>
+    <footer id="footer-container"> </footer>
     <!-- Bootstrap -->
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
