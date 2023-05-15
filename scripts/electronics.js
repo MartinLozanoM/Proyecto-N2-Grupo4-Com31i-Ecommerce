@@ -290,7 +290,6 @@ const renderProducts = (products) => {
 
     productElement.innerHTML = `
            <div class="card-container" >
-            <div class="card" style="width: 18rem; height: 25rem;">
                 <img src=${product.image} class="card-img-top image-product" alt=${product.title}>
                 <div class="card-body">
                     <h5 class="card-title">${product.title}</h5>
