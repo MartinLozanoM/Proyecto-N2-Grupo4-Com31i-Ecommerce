@@ -5,7 +5,6 @@ const imagenSlider = [
     images1: "./assets/img/ropahombre.jpg",
     images2: "./assets/img/induhombre2.jpg",
     images3: "./assets/img/induhombre3.jpg",
-    images4: "./assets/img/induhombre4.jpg",
   },
 ];
 
@@ -22,9 +21,6 @@ const renderSlider = (images) => {
             </div> 
             <div class="carousel-item">
             <img class="slider3" src=${images.images3} alt="Consolas y Videojuegos">
-            </div> 
-            <div class="carousel-item">
-            <img class="slider4" src=${images.images4} alt="Muebles y Hogar">
             </div> 
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">

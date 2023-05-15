@@ -108,6 +108,7 @@
     width: 200px;
     height: 60px;
   }
+ 
 }
 @media (min-width: 900px) {
   .logo-rm img {
@@ -146,6 +147,7 @@
     margin-top: 0;
   }
 }
+
 
 /* ------------- End Navbar ------------- */
 /* Start Form */
@@ -211,17 +213,21 @@ footer {
   background-color: #304269;
   padding: 20px;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items:center;
   justify-content: space-evenly;
+  
 }
 .card-footer { 
   background-color: #ffffff;
-  width: 18%;
+  width: 80%;
   color: #6f6f6f;
   display: flex;
   flex-direction: column;
   align-items: center;
   border-radius: 10px;
+  margin: 15px 0 ;
+  justify-content: space-evenly;
  
 }
 .card-footer:nth-child(5){
@@ -289,4 +295,20 @@ footer {
 .color-green:focus {
   background-color: #198754;
   color: white;
+}
+@media (min-width: 768px) {
+  footer {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+
+  }
+.card-footer {
+  width: 19%;
+  height: 10rem;
+  margin: 0;
+  
+
+}
+
 }

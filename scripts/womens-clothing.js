@@ -523,10 +523,7 @@ const containerFooter = document.getElementById("footer-container");
 const itemFooter = [
   {
     name: "Martín Lozano Muñoz",
-<<<<<<< HEAD
-=======
     image: "./assets/img/martin.jpeg",
->>>>>>> a4264eb8dc3d914b0f57b3d84f2011abd3ebf577
     profileLinkedin:
       "https://www.linkedin.com/in/martin-lozano-mu%C3%B1oz-bbb545235",
     profileGithub: "https://github.com/MartinLozanoM",
@@ -534,22 +531,15 @@ const itemFooter = [
 
   {
     name: "Bernardo Villafañe",
-<<<<<<< HEAD
-    profileLinkedin: "",
-=======
     image: "./assets/img/bernardo.jpeg",
     profileLinkedin:
       "https://www.linkedin.com/in/bernardo-villafa%C3%B1e-592267272",
->>>>>>> a4264eb8dc3d914b0f57b3d84f2011abd3ebf577
     profileGithub: "https://github.com/Berni011",
   },
 
   {
     name: "Daniela Artaza Quiroga",
-<<<<<<< HEAD
-=======
     image: "./assets/img/daniela.jpeg",
->>>>>>> a4264eb8dc3d914b0f57b3d84f2011abd3ebf577
     profileLinkedin:
       "https://www.linkedin.com/in/daniela-artaza-quiroga-403b3a218/",
     profileGithub: "https://github.com/DanielaQuiroga15",
@@ -557,25 +547,18 @@ const itemFooter = [
 
   {
     name: "Andrea Toledo",
-<<<<<<< HEAD
-    profileLinkedin: "",
-    profileGithub: "",
-=======
     image: "./assets/img/andrea.jpeg",
     profileLinkedin: "https://www.linkedin.com/in/andreatoledopintor/",
     profileGithub: "https://github.com/andretoledo22",
->>>>>>> a4264eb8dc3d914b0f57b3d84f2011abd3ebf577
+
   },
 
   {
     name: "Agustín Lizarraga",
-<<<<<<< HEAD
-    profileLinkedin: "",
-=======
     image: "./assets/img/agustin.jpeg",
     profileLinkedin:
       "https://www.linkedin.com/in/agustin-eduardo-lizarraga-1a9278275/",
->>>>>>> a4264eb8dc3d914b0f57b3d84f2011abd3ebf577
+
     profileGithub: "https://github.com/AgustinLizarraga",
   },
 ];
@@ -587,6 +570,7 @@ const renderFooter = (item) => {
     elementitem.classList.add("card-footer");
 
     elementitem.innerHTML = `
+    <img src="${item.image}" alt="${item.name}">
     <p class="footer-card-title text-center">${item.name}</p>
     <div class="footer-card-icons">
      <a  href="${item.profileGithub}" target="_blank"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"  viewBox="0 0 16 16">
