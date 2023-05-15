@@ -2,7 +2,7 @@ body {
     background-color: rgb(198 201 207);
   }
 
-  /* --- Slider Andrea --- */
+  /* --- Slider --- */
   .carousel-item video {
     margin: 10px;
     width: 100%;
@@ -10,7 +10,7 @@ body {
     object-position:center;
   }
 
-/* --- Cards Andrea --- */
+/* --- Cards --- */
 
 
 .card-container {
