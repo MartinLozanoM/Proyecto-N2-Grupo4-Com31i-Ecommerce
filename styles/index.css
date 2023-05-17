@@ -102,6 +102,10 @@
   opacity: 0.9;
 }
 
+  /* --- Slider --- */
+
+
+  
 /*? --------- Media Queries --------- */
 @media (min-width: 768px) {
   .logo-rm img {

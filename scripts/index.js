@@ -27,46 +27,54 @@
 // });
 // -------- End Navbar -------
 //Start Slider
-const imagenes = [
-  "./assets/img/sliderElectronico.jpg",
-  "./assets/img/ropahombre.jpg",
-  "./assets/img/women.jpg",
-  "./assets/img/joyeria1.jpg",
+const sliderConteiner = document.getElementById("carouselExampleAutoplaying");
+
+const imagenSlider = [
+  {
+    images1: "./assets/img/RollingStore1.jpg",
+    images2: "./assets/img/RollingStore2.jpg",
+    images3: "./assets/img/RollingStore3.jpg",
+    images4: "./assets/img/RollingStore4.jpg",
+    images5: "./assets/img/RollingStore5.jpg",
+  },
 ];
 
-document.Imagen.src = imagenes[0];
+const renderSlider = (images) => {
+  images.forEach((images) => {
+    const elementSlider = document.createElement("div");
+    elementSlider.innerHTML = `
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img class="slider1" src=${images.images1} alt="Presentación">
+            </div>
+            <div class="carousel-item">
+                <img class="slider2" src=${images.images2} alt="Tecnología">
+            </div> 
+            <div class="carousel-item">
+            <img class="slider3" src=${images.images3} alt="Ropa de Mujer">
+            </div> 
+            <div class="carousel-item">
+            <img class="slider4" src=${images.images4} alt="Ropa de Hombre">
+            </div> 
+            <div class="carousel-item">
+            <img class="slider5" src=${images.images5} alt="Joyería y Accesorios">
+            </div> 
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+        </button> 
+        
+        `;
+    sliderConteiner.appendChild(elementSlider);
+  });
+};
 
-const SliderIzquierdo = document.querySelector(".slider-izquierdo");
-const SliderDerecho = document.querySelector(".slider-derecho");
-let Contador = 0;
-
-function MoverDerecha() {
-  Contador++;
-  if (Contador > imagenes.length - 1) {
-    Contador = 0;
-  }
-  document.Imagen.src = imagenes[Contador];
-}
-let Intervalo = setInterval(MoverDerecha, 2000);
-
-SliderDerecho.addEventListener("click", function () {
-  clearInterval(Intervalo);
-  MoverDerecha();
-  Intervalo = setInterval(MoverDerecha, 2000);
-});
-
-function MoverIzquierda() {
-  Contador--;
-  if (Contador < 0) {
-    Contador = imagenes.length - 1;
-  }
-  document.Imagen.src = imagenes[Contador];
-}
-SliderIzquierdo.addEventListener("click", function () {
-  clearInterval(Intervalo);
-  MoverIzquierda();
-  Intervalo = setInterval(MoverDerecha, 2000);
-});
+renderSlider(imagenSlider);
 //End Slider
 
 //footer
