@@ -83,7 +83,7 @@ const itemFooter = [
 
   {
     name: "Bernardo Villafañe",
-    image: "",
+    image: "./assets/img/bernardo.jpeg",
     profileLinkedin:
       "https://www.linkedin.com/in/bernardo-villafa%C3%B1e-592267272",
     profileGithub: "https://github.com/Berni011",
