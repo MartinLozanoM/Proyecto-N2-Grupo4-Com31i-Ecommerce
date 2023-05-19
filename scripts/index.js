@@ -45,19 +45,19 @@ const renderSlider = (images) => {
     elementSlider.innerHTML = `
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img class="slider1" src=${images.images1} alt="Presentación">
+                <img class="slider1" src=${images.images1} class="d-block w-60" alt="Presentación">
             </div>
             <div class="carousel-item">
-                <img class="slider2" src=${images.images2} alt="Tecnología">
+                <img class="slider2" src=${images.images2} class="d-block w-100" alt="Tecnología">
             </div> 
             <div class="carousel-item">
-            <img class="slider3" src=${images.images3} alt="Ropa de Mujer">
+            <img class="slider3" src=${images.images3} class="d-block w-100" alt="Ropa de Mujer">
             </div> 
             <div class="carousel-item">
-            <img class="slider4" src=${images.images4} alt="Ropa de Hombre">
+            <img class="slider4" src=${images.images4} class="d-block w-100" alt="Ropa de Hombre">
             </div> 
             <div class="carousel-item">
-            <img class="slider5" src=${images.images5} alt="Joyería y Accesorios">
+            <img class="slider5" src=${images.images5} class="d-block w-100" alt="Joyería y Accesorios">
             </div> 
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
