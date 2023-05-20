@@ -101,64 +101,38 @@
 .search-button:hover {
   opacity: 0.9;
 }
-
-  /* --- Slider --- */
-.carousel-inner {
-  width: 90%;
-  margin: 0 auto;
-}
-
-
-  
-/*? --------- Media Queries --------- */
-@media (min-width: 768px) {
-  .logo-rm img {
-    width: 200px;
-    height: 60px;
-  }
- 
-}
-@media (min-width: 900px) {
-  .logo-rm img {
-    width: 300px;
-    height: 70px;
-  }
-  .navbar-container {
-    display: grid !important;
-    grid-template-areas: "logo logo logo menu menu menu menu menu user user cart cart";
-    justify-content: normal !important;
-  }
-  .logo-rm {
-    grid-area: logo;
-  }
-  .user-icon {
-    grid-area: user;
-  }
-  .cart-icon {
-    grid-area: cart;
-  }
-  .hamburger-menu {
-    display: none;
-  }
-  .menu-items {
-    grid-area: menu;
-    display: flex !important;
-  }
-  .menu-items-list {
-    flex-direction: row;
-  }
-  .menu-items-list li {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
-  }
-  .search-bar-container {
-    margin-top: 0;
-  }
-}
-
-
 /* ------------- End Navbar ------------- */
-/* Start Form */
+/* ------------- Start Slider ----------- */
+.carouselExampleContainer {
+  height: 300px;
+}
+
+.carousel-inner {
+  width: 100%;
+  margin: 0 auto;
+  height: 100%;
+}
+.carousel-item {
+  height: 100%;
+}
+.carousel-inner .carousel-item img {
+  height: 100%;
+  width: 100%;
+}
+
+/* Button Search Bar */
+.color-green {
+  background-color: #198754;
+  color: white;
+}
+
+.color-green:hover,
+.color-green:active,
+.color-green:focus {
+  background-color: #198754;
+  color: white;
+}
+/* ------------- Start Form ------------- */
 .form-container {
   border: 5px solid #198754;
   border-radius: 25px;
@@ -166,7 +140,6 @@
   margin-top: 1.5rem;
   padding: 1rem;
 }
-
 .register-form {
   width: 100%;
   padding: 30px;
@@ -216,17 +189,17 @@
   color: #198754;
   border: 1px solid #198754;
 }
+/* ------------- End Form ------------- */
 /* ------------- Start Footer ------------- */
 footer {
   background-color: #304269;
   padding: 20px;
   display: flex;
   flex-direction: column;
-  align-items:center;
+  align-items: center;
   justify-content: space-evenly;
-  
-  }
-.card-footer { 
+}
+.card-footer {
   background-color: #ffffff;
   width: 80%;
   color: #6f6f6f;
@@ -234,24 +207,21 @@ footer {
   flex-direction: column;
   align-items: center;
   border-radius: 10px;
-  margin: 15px 0 ;
+  margin: 15px 0;
   justify-content: space-evenly;
- 
 }
-.card-footer:nth-child(5){
+.card-footer:nth-child(5) {
   border-radius: 10px;
 }
-
 .card-footer img {
   width: 60px;
   height: 60px;
   border-radius: 100%;
   object-fit: cover;
 }
-.footer-card-title{ 
+.footer-card-title {
   width: 100%;
   color: #198754;
-  
 }
 .footer-card-icons {
   width: 100%;
@@ -262,62 +232,61 @@ footer {
 .footer-card-icons a {
   color: #198754;
 }
-
-
 /* ------------- End Footer ------------- */
-
-/* ------------- Start Slider ----------- */
-.contenedor-slider {
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  max-width: 1200px;
-  padding: 0px 40px;
-}
-
-.slider-izquierdo,
-.slider-derecho {
-  width: 5%;
-}
-
-.slider-izquierdo img,
-.slider-derecho img {
-  width: 100%;
-}
-
-.slider-screen {
-  width: 100%;
-}
-
-.slider-screen img
-{
-    width: 100%;
-}
-/* Button Search Bar */
-.color-green{
-  background-color:#198754;
-  color: white;
-}
-
-.color-green:hover,
-.color-green:active,
-.color-green:focus {
-  background-color: #198754;
-  color: white;
-}
+/*? --------- Media Queries --------- */
 @media (min-width: 768px) {
+  .logo-rm img {
+    width: 200px;
+    height: 60px;
+  }
+  .carouselExampleContainer {
+    height: 600px;
+  }
   footer {
     flex-direction: row;
     align-items: center;
     justify-content: space-evenly;
-
   }
-.card-footer {
-  width: 19%;
-  height: 10rem;
-  margin: 0;
-  
-
+  .card-footer {
+    width: 19%;
+    height: 10rem;
+    margin: 0;
+  }
 }
+@media (min-width: 900px) {
+  .logo-rm img {
+    width: 300px;
+    height: 70px;
+  }
+  .navbar-container {
+    display: grid !important;
+    grid-template-areas: "logo logo logo menu menu menu menu menu user user cart cart";
+    justify-content: normal !important;
+  }
+  .logo-rm {
+    grid-area: logo;
+  }
+  .user-icon {
+    grid-area: user;
+  }
+  .cart-icon {
+    grid-area: cart;
+  }
+  .hamburger-menu {
+    display: none;
+  }
+  .menu-items {
+    grid-area: menu;
+    display: flex !important;
+  }
+  .menu-items-list {
+    flex-direction: row;
+  }
+  .menu-items-list li {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  .search-bar-container {
+    margin-top: 0;
+  }
 }
-
