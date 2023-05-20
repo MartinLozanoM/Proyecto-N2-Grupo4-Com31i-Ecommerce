@@ -102,6 +102,14 @@
   opacity: 0.9;
 }
 
+  /* --- Slider --- */
+.carousel-inner {
+  width: 90%;
+  margin: 0 auto;
+}
+
+
+  
 /*? --------- Media Queries --------- */
 @media (min-width: 768px) {
   .logo-rm img {
