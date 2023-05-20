@@ -11,18 +11,19 @@ const imagenSlider = [
 const renderSlider = (images) => {
   images.forEach((images) => {
     const elementSlider = document.createElement("div");
+    elementSlider.classList.add("carouselExampleContainer");
     elementSlider.innerHTML = `
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <video width="640" height="360" autoplay muted loop
+                <video autoplay muted loop
                 src=${images.images1}></video>
             </div>
             <div class="carousel-item">
-                <video width="640" height="360" autoplay muted loop
+                <video autoplay muted loop
                 src=${images.images2}></video>
             </div> 
             <div class="carousel-item">
-                <video width="640" height="360" autoplay muted loop
+                <video autoplay muted loop
                 src=${images.images3}></video>
             </div> 
         </div>
@@ -408,35 +409,39 @@ const itemFooter = [
   {
     name: "Martín Lozano Muñoz",
     image: "./assets/img/martin.jpeg",
-    profileLinkedin:"https://www.linkedin.com/in/martin-lozano-mu%C3%B1oz-bbb545235",
+    profileLinkedin:
+      "https://www.linkedin.com/in/martin-lozano-mu%C3%B1oz-bbb545235",
     profileGithub: "https://github.com/MartinLozanoM",
   },
 
   {
     name: "Bernardo Villafañe",
-    image:"./assets/img/bernardo.jpeg",
-    profileLinkedin: "https://www.linkedin.com/in/bernardo-villafa%C3%B1e-592267272",
+    image: "./assets/img/bernardo.jpeg",
+    profileLinkedin:
+      "https://www.linkedin.com/in/bernardo-villafa%C3%B1e-592267272",
     profileGithub: "https://github.com/Berni011",
   },
 
   {
     name: "Daniela Artaza Quiroga",
-    image:"./assets/img/daniela.jpeg",
-    profileLinkedin:"https://www.linkedin.com/in/daniela-artaza-quiroga-403b3a218/",
+    image: "./assets/img/daniela.jpeg",
+    profileLinkedin:
+      "https://www.linkedin.com/in/daniela-artaza-quiroga-403b3a218/",
     profileGithub: "https://github.com/DanielaQuiroga15",
   },
 
   {
     name: "Andrea Toledo",
-    image:"./assets/img/andrea.jpeg",
+    image: "./assets/img/andrea.jpeg",
     profileLinkedin: "https://www.linkedin.com/in/andreatoledopintor/",
     profileGithub: "https://github.com/andretoledo22",
   },
 
   {
     name: "Agustín Lizarraga",
-    image:"./assets/img/agustin.jpeg",
-    profileLinkedin: "https://www.linkedin.com/in/agustin-eduardo-lizarraga-1a9278275/",
+    image: "./assets/img/agustin.jpeg",
+    profileLinkedin:
+      "https://www.linkedin.com/in/agustin-eduardo-lizarraga-1a9278275/",
     profileGithub: "https://github.com/AgustinLizarraga",
   },
 ];
@@ -462,12 +467,12 @@ const renderFooter = (item) => {
     
   </div>
     
-        `
-        
-    containerFooter.appendChild(elementitem)
+        `;
+
+    containerFooter.appendChild(elementitem);
   });
 };
-renderFooter(itemFooter)
+renderFooter(itemFooter);
 //End Footer
 // Start Search Bar
 const searchInput = document.getElementById("search-input");

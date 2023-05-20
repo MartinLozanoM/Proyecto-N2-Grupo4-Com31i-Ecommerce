@@ -235,138 +235,88 @@ console.log({ products });
 
 //End-products
 
-let cart;
-
-let counterCart = 0;
-
-const dataLS = localStorage.getItem("cart");
-
-const productInCartLS = JSON.parse(dataLS);
-
-if (productInCartLS) {
-  cart = productInCartLS;
-} else {
-  cart = [];
-}
-
-window.onload = () => {
-  if (dataLS) {
-    cart = productInCartLS;
-    counterCart = totalQuantity;
-    cartUpdate();
-    console.log(cart.length);
-  }
-};
-
-// ------- Add Products in the cart-Array -------
-const addCart = (prodId) => {
-  const itemIndex = cart.findIndex((item) => item.id === prodId); // Encuentra el índice del producto en el carrito, si existe
-  if (itemIndex !== -1) {
-    // Si el producto ya está en el carrito, aumenta su cantidad
-    cart[itemIndex].quantity += 1;
-  } else {
-    // Si el producto no está en el carrito, agrega un nuevo objeto de producto con cantidad 1
-    const item = products.find((prod) => prod.id === prodId);
-    cart.push(item);
-  }
-  counterCart++;
-  cartUpdate();
-};
-// ------- Add Products in the cart-divs -------
-const cartModalContainer = document.getElementById("modal-cart-main");
-// ------- Cart Update -------
-const cartUpdate = () => {
-  cartModalContainer.innerHTML = "";
-  cart.forEach((prod) => {
-    const div = document.createElement("div");
-    div.classList.add("product-in-cart");
-    div.innerHTML = `
-      <p>${prod.title}</p>
-      <p>Quantity: <span id="total-product">${prod.quantity}</span></p>
-      <p>Price: $${prod.price}</p>
-      <button onclick ="deleteItemFromCart(${prod.id})" type="button" class="btn btn-danger">
-      <i class="bi bi-trash-fill"></i>
-      </button>
-  `;
-    cartModalContainer.appendChild(div);
-  });
-  localStorage.setItem("cart", JSON.stringify(cart));
-  updateCounterCart();
-};
-// ------- Delete Product in the cart -------
-const deleteItemFromCart = (prodId) => {
-  const item = products.find((prod) => prod.id === prodId);
-  const index = cart.indexOf(item);
-  cart.splice(index, 1);
-  if (item.quantity > 1) {
-    counterCart -= item.quantity;
-  } else {
-    counterCart--;
-  }
-  cartUpdate();
-};
-// ------- Delete All Products in the cart -------
-const emptyButton = document.getElementById("empty-button");
-emptyButton.addEventListener("click", () => {
-  localStorage.clear();
-  cart = [];
-  counterCart = 0;
-  cartUpdate();
-});
-// ------- Cart Counter -------
-const counterIconCart = document.getElementById("cart-icon-counter");
-const updateCounterCart = () => {
-  counterIconCart.textContent = counterCart;
-};
-const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
-console.log(counterCart);
-// -------- End Cart -------
-
 // -------- Cart Page -------
+const productInCartLS = JSON.parse(localStorage.getItem("cart"));
 const cartContainer = document.querySelector("#cart-container");
 const emptyCart = document.querySelector("#empty-cart");
 const cartProducts = document.querySelector("#cart-products");
 const cartSummary = document.querySelector("#cart-summary");
+const emptyCartButton = document.querySelector("#empty-cart-button");
+const buyCartButton = document.querySelector("#buy-cart-button");
 const totalSummaryCounter = document.getElementById("total-summary-counter");
+let deleteButtons = document.querySelectorAll(".cart-delete-product");
 
-if (productInCartLS && productInCartLS.length > 0) {
-  emptyCart.classList.add("disabled");
-  cartProducts.classList.remove("disabled");
-  cartSummary.classList.remove("disabled");
+function cartPageUpdate() {
+  if (productInCartLS && productInCartLS.length > 0) {
+    emptyCart.classList.add("disabled");
+    cartProducts.classList.remove("disabled");
+    cartSummary.classList.remove("disabled");
 
-  cartProducts.innerHTML = "";
+    cartProducts.innerHTML = "";
 
-  productInCartLS.forEach((product) => {
-    const div = document.createElement("div");
-    div.classList.add("cart-product");
-    div.innerHTML = `
-      <img src=${product.image} class="" alt=${product.title} width="50"
-      height="50">
-      <p>${product.title}</p>
-      <p>Quantity: <span id="total-product">${product.quantity}</span></p>
-      <p>Price: $${product.price}</p>
-      <p>Subtotal: $${product.price * product.quantity}</p>
-      <button onclick ="deleteItemFromCart(${
-        product.id
-      })" type="button" class="btn btn-danger">
-      <i class="bi bi-trash-fill"></i>
-      </button>
-    `;
-    cartProducts.appendChild(div);
-  });
-} else {
-  emptyCart.classList.remove("disabled");
-  cartProducts.classList.add("disabled");
-  cartSummary.classList.add("disabled");
+    productInCartLS.forEach((product) => {
+      const div = document.createElement("div");
+      div.classList.add("cart-product");
+      div.innerHTML = `
+        <img src=${product.image} class="" alt=${product.title} width="50"
+        height="50">
+        <p>${product.title}</p>
+        <p>Quantity: <span id="total-product">${product.quantity}</span></p>
+        <p>Price: $${product.price}</p>
+        <p>Subtotal: $${product.price * product.quantity}</p>
+        <button id="${
+          product.id
+        }" type="button" class="btn btn-danger cart-delete-product">
+        <i class="bi bi-trash-fill"></i>
+        </button>
+      `;
+      cartProducts.appendChild(div);
+    });
+  } else {
+    cartProducts.innerHTML = "";
+    emptyCart.classList.remove("disabled");
+    cartProducts.classList.add("disabled");
+    cartSummary.classList.add("disabled");
+  }
+  updateDeleteButtons();
+  updateTotalSummary();
 }
-updateTotalSummary();
+
+cartPageUpdate();
 
 //Counter total summary
 function updateTotalSummary() {
-  totalSummaryCounter.innerText = cart.reduce(
+  totalSummaryCounter.innerText = productInCartLS.reduce(
     (total, item) => total + item.price * item.quantity,
     0
   );
+}
+
+//Delete Buttons Cart page
+function updateDeleteButtons() {
+  deleteButtons = document.querySelectorAll(".cart-delete-product");
+  deleteButtons.forEach((button) => {
+    button.addEventListener("click", deleteProductFromCart);
+  });
+}
+function deleteProductFromCart(e) {
+  const buttonId = parseInt(e.currentTarget.id);
+  const index = productInCartLS.findIndex((product) => product.id === buttonId);
+  console.log(productInCartLS);
+  productInCartLS.splice(index, 1);
+  console.log(productInCartLS);
+  cartPageUpdate();
+  localStorage.setItem("cart", JSON.stringify(productInCartLS));
+}
+
+//Empty Button Cart page
+
+emptyCartButton.addEventListener("click", emptyAllButton);
+
+function emptyAllButton() {
+  productInCartLS.length = 0;
+  localStorage.setItem("cart", JSON.stringify(productInCartLS));
+  cartPageUpdate();
 }
 
 //footer
