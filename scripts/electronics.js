@@ -263,6 +263,7 @@ const productsStore = [
       count: 130,
     },
   },
+
 ];
 const productsContainer = document.getElementById("products-container");
 console.log(productsContainer);
@@ -291,7 +292,7 @@ const renderProducts = (products) => {
 
     productElement.innerHTML = `
            <div class="card-container" >
-                <img src=${product.image} alt=${product.title}>
+                <img src=${product.image} class="card-img-top image-product" alt=${product.title}>
                 <div class="card-body">
                     <h5 class="card-title">${product.title}</h5>
                     <p class="card-text">${product.description}</p>
