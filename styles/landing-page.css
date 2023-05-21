@@ -137,6 +137,12 @@ body {
   color: white;
 }
 /* ------------- Start Cards ------------- */
+.products-container-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .card-container {
   width: 330px;
   height: 430px;

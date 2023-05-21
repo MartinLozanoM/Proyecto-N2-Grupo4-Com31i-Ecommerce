@@ -1,40 +1,6 @@
 body {
     background-color: rgb(198 201 207);
   }
-
-.card {
-    display: flex;
-    /* flex-direction: wrap; */
-}
-
-.card-title{
-    text-align: center;
-    font-family:Arial, Helvetica, sans-serif
-}
-
-.card-text{
-    text-align: center;
-    font-family:Arial, Helvetica, sans-serif
-}
-
-.price-price-mobile{
-    text-align: center;
-    font-family:Arial, Helvetica, sans-serif
-}
-
-.image-product{
-    margin-left: 3rem;
-    width: 200px;
-    height: 200px;
-}
-
-.button-add{
-    margin-left: 5rem;
-    background-color:  #198754;
-    align-items: center;
-}
-
-/* --- end agustin --- */
 /* --- andrea --- */
 .slider1, .slider2, .slider3, .slider4  {
     width:100%;
