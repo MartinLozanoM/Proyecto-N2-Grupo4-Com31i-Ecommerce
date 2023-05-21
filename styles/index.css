@@ -140,11 +140,23 @@ body {
 /* ------------- Start Form ------------- */
 .form-container {
   border: 5px solid #198754;
-  border-radius: 25px;
+  background-color: #FFFFFF;
   margin-bottom: 1.5rem;
   margin-top: 1.5rem;
   padding: 1rem;
+  color: #198754;
+  font-family: Arial, Helvetica, sans-serif;
 }
+
+.img_form {
+  max-width: 550px;
+  max-height: 662px;
+  object-fit: contain;
+  object-position: 100% 10%;
+  margin-top: 1.5rem;
+  
+}
+
 .register-form {
   width: 100%;
   padding: 30px;
@@ -154,10 +166,11 @@ body {
 .register-form h2 {
   font-size: 22px;
   margin-bottom: 20px;
+  color: #304269;
 }
 .info {
   width: 100%;
-  background: #f4f4fd;
+  background: #CED1D9;
   padding: 15px;
   border: 0;
   border-radius: 25px;
