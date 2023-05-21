@@ -4,7 +4,7 @@ const imagenSlider = [
   {
     images1: "./assets/img/sliderElectronico.jpg",
     images2: "./assets/img/electronica2.jpg",
-    images3: "./assets/img/slide2-image-3.jpeg",
+    images3: "./assets/img/electronica3.jpg",
     images4: "./assets/img/electronica4.jpeg",
   },
 ];
@@ -263,7 +263,6 @@ const productsStore = [
       count: 130,
     },
   },
-
 ];
 const productsContainer = document.getElementById("products-container");
 console.log(productsContainer);
