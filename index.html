@@ -18,6 +18,13 @@
     <!-- Styles -->
     <link rel="stylesheet" href="./styles/index.css" />
     <link rel="stylesheet" href="./styles/landing-page.css" />
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chivo:wght@100;400&family=Noto+Sans+Tamil:wght@400;600&family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
     <title>Inicio</title>
   </head>
   <body>
@@ -27,7 +34,12 @@
         <div class="container-fluid navbar-container">
           <!-- Logo -->
           <a class="navbar-brand logo-rm" href="./index.html">
-            <img src="./assets/img/LOGO SVG.svg" alt="" />
+            <img
+              src="./assets/img/LOGO SVG.svg"
+              alt=""
+              width="500"
+              height="145"
+            />
           </a>
           <!-- User -->
           <button type="button" class="btn btn-primary user-icon">
@@ -40,7 +52,9 @@
             data-bs-toggle="modal"
             data-bs-target="#exampleModal"
           >
-            <i class="bi bi-cart-fill" id="cart-icon-counter"></i>
+            <i class="bi bi-cart-fill">
+              <span id="cart-icon-counter">0</span>
+            </i>
           </button>
           <!-- Modal Cart -->
           <div
@@ -64,6 +78,7 @@
                 <div id="modal-cart-main" class="modal-body"></div>
                 <div class="modal-footer">
                   <button
+                    id="empty-button"
                     type="button"
                     class="btn btn-secondary"
                     data-bs-dismiss="modal"
@@ -74,7 +89,7 @@
                     type="button"
                     class="btn btn-primary view-cart-button"
                   >
-                    <a href="./cart.html">Ver Carrito</a>
+                    <a href="./cart.html">Ver carrito</a>
                   </button>
                 </div>
               </div>
@@ -146,6 +161,24 @@
                 Buscar
               </button>
               <!-- End Search Bar -->
+              <!-- <form class="d-flex search-bar-container">
+                <input
+                  id="search-input"
+                  name="searchBar"
+                  class="form-control"
+                  type="search"
+                  placeholder="Buscar"
+                  aria-label="Search"
+                />
+                <button
+                id="search-button"
+                  class="btn btn-outline-success search-button"
+                  type="submit"
+                >
+                  <i class="bi bi-search"></i>
+                </button>
+              </form>  -->
+              <!-- End Search Bar -->
             </ul>
           </div>
         </div>
@@ -154,9 +187,12 @@
     <!-- End Navbar -->
     <main>
       <!-- SLIDER -->
-      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-      </div>
-          
+      <div
+        id="carouselExampleAutoplaying"
+        class="carousel slide"
+        data-bs-ride="carousel"
+      ></div>
+
       <!-- Form -->
       <div class="container text-center form-container">
         <h2 class="">¿Querés sumarte a nuestra tienda online?</h2>

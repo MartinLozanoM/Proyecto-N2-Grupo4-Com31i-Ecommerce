@@ -50,6 +50,95 @@ const renderSlider = (images) => {
 renderSlider(imagenSlider);
 //End Slider
 
+// ------- Cart -------
+
+let cart;
+
+let counterCart = 0;
+
+const dataLS = localStorage.getItem("cart");
+
+const productInCartLS = JSON.parse(dataLS);
+
+if (productInCartLS) {
+  cart = productInCartLS;
+} else {
+  cart = [];
+}
+
+window.onload = () => {
+  if (dataLS) {
+    cart = productInCartLS;
+    counterCart = totalQuantity;
+    cartUpdate();
+    console.log(cart.length);
+  }
+};
+
+// ------- Add Products in the cart-Array -------
+const addCart = (prodId) => {
+  const itemIndex = cart.findIndex((item) => item.id === prodId); // Encuentra el índice del producto en el carrito, si existe
+  if (itemIndex !== -1) {
+    // Si el producto ya está en el carrito, aumenta su cantidad
+    cart[itemIndex].quantity += 1;
+  } else {
+    // Si el producto no está en el carrito, agrega un nuevo objeto de producto con cantidad 1
+    const item = products.find((prod) => prod.id === prodId);
+    cart.push(item);
+  }
+  counterCart++;
+  cartUpdate();
+};
+// ------- Add Products in the cart-divs -------
+const cartModalContainer = document.getElementById("modal-cart-main");
+// ------- Cart Update -------
+const cartUpdate = () => {
+  cartModalContainer.innerHTML = "";
+  cart.forEach((prod) => {
+    const div = document.createElement("div");
+    div.classList.add("product-in-cart");
+    div.innerHTML = `
+      <p>${prod.title}</p>
+      <p>Quantity: <span id="total-product">${prod.quantity}</span></p>
+      <p>Price: $${prod.price}</p>
+      <button onclick ="deleteItemFromCart(${prod.id})" type="button" class="btn btn-danger">
+      <i class="bi bi-trash-fill"></i>
+      </button>
+  `;
+    cartModalContainer.appendChild(div);
+  });
+  localStorage.setItem("cart", JSON.stringify(cart));
+  updateCounterCart();
+};
+// ------- Delete Product in the cart -------
+const deleteItemFromCart = (prodId) => {
+  const item = products.find((prod) => prod.id === prodId);
+  const index = cart.indexOf(item);
+  cart.splice(index, 1);
+  if (item.quantity > 1) {
+    counterCart -= item.quantity;
+  } else {
+    counterCart--;
+  }
+  cartUpdate();
+};
+// ------- Delete All Products in the cart -------
+const emptyButton = document.getElementById("empty-button");
+emptyButton.addEventListener("click", () => {
+  localStorage.clear();
+  cart = [];
+  counterCart = 0;
+  cartUpdate();
+});
+// ------- Cart Counter -------
+const counterIconCart = document.getElementById("cart-icon-counter");
+const updateCounterCart = () => {
+  counterIconCart.textContent = counterCart;
+};
+const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
+console.log(counterCart);
+// -------- End Cart -------
+
 //footer
 const containerFooter = document.getElementById("footer-container");
 
@@ -104,7 +193,7 @@ const renderFooter = (item) => {
     <img src="${item.image}" alt="${item.name}"> 
     <p class="footer-card-title text-center">${item.name}</p>
     <div class="footer-card-icons">
-     <a  href="${item.profileGithub}" target="_blank"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"  viewBox="0 0 16 16">
+    <a  href="${item.profileGithub}" target="_blank"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"  viewBox="0 0 16 16">
       <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
     </svg>
     </a>
