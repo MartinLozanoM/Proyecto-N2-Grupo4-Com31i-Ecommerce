@@ -17,7 +17,13 @@
     />
     <!-- Styles -->
     <link rel="stylesheet" href="./styles/cart.css" />
-    <link rel="stylesheet" href="./styles/index.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Chivo:wght@100;400&family=Noto+Sans+Tamil:wght@400;600&family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
     <title>Carrito</title>
   </head>
   <body>
@@ -39,55 +45,11 @@
             <i class="bi bi-person-circle"></i>
           </button>
           <!-- Cart -->
-          <button
-            type="button"
-            class="btn btn-primary cart-icon"
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal"
-          >
+          <button type="button" class="btn btn-primary cart-icon">
             <i class="bi bi-cart-fill">
-              <span id="cart-icon-counter">0</span>
+              <span id="cart-icon-counter"></span>
             </i>
           </button>
-          <!-- Modal Cart -->
-          <div
-            class="modal fade"
-            id="exampleModal"
-            tabindex="-1"
-            aria-labelledby="exampleModalLabel"
-            aria-hidden="true"
-          >
-            <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Mi carrito</h5>
-                  <button
-                    type="button"
-                    class="btn-close"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  ></button>
-                </div>
-                <div id="modal-cart-main" class="modal-body"></div>
-                <div class="modal-footer">
-                  <button
-                    id="empty-button"
-                    type="button"
-                    class="btn btn-secondary"
-                    data-bs-dismiss="modal"
-                  >
-                    Vaciar carrito
-                  </button>
-                  <button
-                    type="button"
-                    class="btn btn-primary view-cart-button"
-                  >
-                    <a href="./cart.html">Ver carrito</a>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
           <!-- Hamburger Menu -->
           <button
             class="navbar-toggler hamburger-menu"
@@ -170,15 +132,22 @@
     <!-- End Navbar -->
     <main>
       <div id="cart-container" class="cart-container">
-        <p id="empty-cart" class="empty-cart">Tu carrito esta vacio</p>
+        <div id="empty-cart" class="empty-cart">
+          <p>Tu carrito esta vacio <i class="bi bi-emoji-frown"></i></p>
+        </div>
         <div id="cart-products" class="cart-products disabled"></div>
-        <div id="cart-summary" class="disabled">
-          <hr />
-          <div id="total-summary">
+        <div id="cart-summary" class="disabled cart-summary">
+          <div id="total-summary" class="total-summary">
             Total de tu compra: $<span id="total-summary-counter">0</span>
           </div>
-          <button id="empty-cart-button">Vaciar carrito</button>
-          <button id="buy-cart-button">Comprar carrito</button>
+          <div class="action-buttons-cart">
+            <button id="empty-cart-button" class="btn btn-secondary">
+              Vaciar carrito
+            </button>
+            <button id="buy-cart-button" class="btn btn-primary buy-cart">
+              Comprar carrito
+            </button>
+          </div>
         </div>
       </div>
     </main>
@@ -191,5 +160,6 @@
       crossorigin="anonymous"
     ></script>
   </body>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script src="./scripts/cart.js"></script>
 </html>
