@@ -1,4 +1,10 @@
 /* General Styles */
+body {
+  box-sizing: border-box;
+  margin: 0;
+  background-color: #ced1d9;
+  font-family: "Chivo", sans-serif;
+}
 /* ------------- Start Navbar ------------- */
 .logo-rm img {
   width: 100px;

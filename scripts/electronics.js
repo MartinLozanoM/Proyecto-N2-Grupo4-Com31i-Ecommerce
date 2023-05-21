@@ -4,7 +4,7 @@ const imagenSlider = [
   {
     images1: "./assets/img/sliderElectronico.jpg",
     images2: "./assets/img/electronica2.jpg",
-    images3: "./assets/img/slide2-image-3.jpeg",
+    images3: "./assets/img/electronica3.jpg",
     images4: "./assets/img/electronica4.jpeg",
   },
 ];
@@ -263,7 +263,6 @@ const productsStore = [
       count: 130,
     },
   },
-
 ];
 const productsContainer = document.getElementById("products-container");
 console.log(productsContainer);
@@ -292,11 +291,11 @@ const renderProducts = (products) => {
 
     productElement.innerHTML = `
            <div class="card-container" >
-                <img src=${product.image} class="card-img-top image-product" alt=${product.title}>
+                <img src=${product.image} alt=${product.title}>
                 <div class="card-body">
                     <h5 class="card-title">${product.title}</h5>
                     <p class="card-text">${product.description}</p>
-                    <p class="price-price-mobile">$ ${product.price}</p>
+                    <p class="price">$ ${product.price}</p>
                     <button id="button-counter-${product.id}" class="btn btn-primary1 button-add">Agregar</button>
                 </div>
             </div>

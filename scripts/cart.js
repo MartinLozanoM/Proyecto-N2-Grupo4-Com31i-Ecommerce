@@ -261,9 +261,11 @@ function cartPageUpdate() {
         <img src=${product.image} class="" alt=${product.title} width="50"
         height="50">
         <p>${product.title}</p>
-        <p>Quantity: <span id="total-product">${product.quantity}</span></p>
-        <p>Price: $${product.price}</p>
-        <p>Subtotal: $${product.price * product.quantity}</p>
+        <p>Cantidad: <span id="total-product">${product.quantity}</span></p>
+        <p>x $${product.price}</p>
+        <p class="empty-cart-subtotal">Subtotal: $${
+          product.price * product.quantity
+        }</p>
         <button id="${
           product.id
         }" type="button" class="btn btn-danger cart-delete-product">
@@ -311,14 +313,39 @@ function deleteProductFromCart(e) {
 
 //Empty Button Cart page
 
-emptyCartButton.addEventListener("click", emptyAllButton);
+emptyCartButton.addEventListener("click", sweetAlertEmptyButton);
+
+function sweetAlertEmptyButton() {
+  swal({
+    title: "Estas seguro que queres vaciar tu carrito?",
+    icon: "warning",
+    buttons: true,
+    dangerMode: true,
+  }).then((willDelete) => {
+    if (willDelete) {
+      emptyAllButton();
+    }
+  });
+}
 
 function emptyAllButton() {
   productInCartLS.length = 0;
   localStorage.setItem("cart", JSON.stringify(productInCartLS));
   cartPageUpdate();
 }
+// Buy button Cart Page
+buyCartButton.addEventListener("click", sweetAlertBuyButton);
 
+function sweetAlertBuyButton() {
+  swal({
+    position: "top-end",
+    icon: "success",
+    title: "Gracias por tu compra!",
+    showConfirmButton: false,
+    timer: 2000,
+  });
+  emptyAllButton();
+}
 //footer
 const containerFooter = document.getElementById("footer-container");
 
@@ -326,35 +353,39 @@ const itemFooter = [
   {
     name: "Martín Lozano Muñoz",
     image: "./assets/img/martin.jpeg",
-    profileLinkedin:"https://www.linkedin.com/in/martin-lozano-mu%C3%B1oz-bbb545235",
+    profileLinkedin:
+      "https://www.linkedin.com/in/martin-lozano-mu%C3%B1oz-bbb545235",
     profileGithub: "https://github.com/MartinLozanoM",
   },
 
   {
     name: "Bernardo Villafañe",
-    image:"./assets/img/bernardo.jpeg",
-    profileLinkedin: "https://www.linkedin.com/in/bernardo-villafa%C3%B1e-592267272",
+    image: "./assets/img/bernardo.jpeg",
+    profileLinkedin:
+      "https://www.linkedin.com/in/bernardo-villafa%C3%B1e-592267272",
     profileGithub: "https://github.com/Berni011",
   },
 
   {
     name: "Daniela Artaza Quiroga",
-    image:"./assets/img/daniela.jpeg",
-    profileLinkedin:"https://www.linkedin.com/in/daniela-artaza-quiroga-403b3a218/",
+    image: "./assets/img/daniela.jpeg",
+    profileLinkedin:
+      "https://www.linkedin.com/in/daniela-artaza-quiroga-403b3a218/",
     profileGithub: "https://github.com/DanielaQuiroga15",
   },
 
   {
     name: "Andrea Toledo",
-    image:"./assets/img/andrea.jpeg",
+    image: "./assets/img/andrea.jpeg",
     profileLinkedin: "https://www.linkedin.com/in/andreatoledopintor/",
     profileGithub: "https://github.com/andretoledo22",
   },
 
   {
     name: "Agustín Lizarraga",
-    image:"./assets/img/agustin.jpeg",
-    profileLinkedin: "https://www.linkedin.com/in/agustin-eduardo-lizarraga-1a9278275/",
+    image: "./assets/img/agustin.jpeg",
+    profileLinkedin:
+      "https://www.linkedin.com/in/agustin-eduardo-lizarraga-1a9278275/",
     profileGithub: "https://github.com/AgustinLizarraga",
   },
 ];
@@ -380,11 +411,11 @@ const renderFooter = (item) => {
     
   </div>
     
-        `
-        
-    containerFooter.appendChild(elementitem)
+        `;
+
+    containerFooter.appendChild(elementitem);
   });
 };
-renderFooter(itemFooter)
+renderFooter(itemFooter);
 
 //End Footer

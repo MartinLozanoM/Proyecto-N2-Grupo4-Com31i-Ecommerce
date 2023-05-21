@@ -1,5 +1,8 @@
 body {
-  background-color: rgb(198 201 207);
+  box-sizing: border-box;
+  margin: 0;
+  background-color: #ced1d9;
+  font-family: "Chivo", sans-serif;
 }
 /* ------------- Start Navbar ------------- */
 .logo-rm img {
@@ -137,13 +140,19 @@ body {
   color: white;
 }
 /* ------------- Start Cards ------------- */
+.products-container-div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .card-container {
-  width: 330px;
+  width: 320px;
   height: 430px;
   border-radius: 8px;
   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
   overflow: hidden;
-  margin: 20px;
+  margin: 20px 0px;
   text-align: center;
   transition: all 0.25s;
   background-color: #ffffff;
@@ -155,7 +164,7 @@ body {
 }
 
 .card-container img {
-  width: auto;
+  width: 60%;
   height: 220px;
   margin-top: 6px;
 }
@@ -282,6 +291,9 @@ footer {
   }
   .carouselExampleContainer {
     height: 600px;
+  }
+  .products-container-div .product {
+    margin: 10px;
   }
   footer {
     flex-direction: row;
