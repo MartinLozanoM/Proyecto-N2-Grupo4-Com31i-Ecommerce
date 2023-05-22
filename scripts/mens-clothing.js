@@ -484,12 +484,22 @@ const searchButton = document.getElementById("search-button");
 const searchProducts = () => {
   const searchTerm = searchInput.value.toLowerCase();
 
-  // Filtramos los productos basándonos en el término de búsqueda
+  // Dividimos el término de búsqueda en palabras
+  const searchWords = searchTerm.split(" ");
+
+  // Filtramos los productos basándonos en las palabras del término de búsqueda
   const filteredProducts = products.filter((product) => {
-    return (
-      product.title.toLowerCase().includes(searchTerm) ||
-      product.description.toLowerCase().includes(searchTerm)
-    );
+    // Convertimos el título y la descripción a minúsculas
+    const title = product.title.toLowerCase();
+    const description = product.description.toLowerCase();
+
+    // Buscamos productos que contienen todas las palabras del término de búsqueda
+    return searchWords.every((word) => {
+      return (
+        title.includes(word) ||
+        description.includes(word)
+      );
+    });
   });
 
   // Renderizamos los resultados
@@ -498,3 +508,10 @@ const searchProducts = () => {
 
 // Evento para cuando se hace clic en el botón de búsqueda
 searchButton.addEventListener("click", searchProducts);
+
+// Evento para cuando se presiona la tecla "Enter" en el campo de búsqueda
+searchInput.addEventListener("keydown", (event) => {
+  if (event.key === "Enter") {
+    searchProducts();
+  }
+});
