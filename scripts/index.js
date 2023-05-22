@@ -139,6 +139,53 @@ const totalQuantity = cart.reduce((total, item) => total + item.quantity, 0);
 console.log(counterCart);
 // -------- End Cart -------
 
+// -------- Form -------
+const form = document.querySelector('.register-form');
+
+form.addEventListener('submit', function(event) {
+  event.preventDefault();
+
+  const name = document.getElementById('name').value;
+  const lastName = document.getElementById('last-name').value;
+  const email = document.getElementById('mail').value;
+  const telephone = document.getElementById('telephone').value;
+
+  const nameRegex = /^[a-zA-Z ]{2,20}$/;
+  const emailRegex = /^\S+@\S+\.\S+$/;
+  const telephoneRegex = /^\d{7,14}$/;
+
+  let isValid = true;
+
+  if (!nameRegex.test(name)) {
+    document.getElementById('name').insertAdjacentHTML('afterend', '<div class="error-message">Ingrese un nombre válido.</div>');
+    isValid = false;
+  }
+
+  if (!nameRegex.test(lastName)) {
+    document.getElementById('last-name').insertAdjacentHTML('afterend', '<div class="error-message">Ingrese un apellido válido.</div>');
+    isValid = false;
+  }
+
+  if (!emailRegex.test(email)) {
+    document.getElementById('mail').insertAdjacentHTML('afterend', '<div class="error-message">Ingrese un correo electrónico válido.</div>');
+    isValid = false;
+  }
+
+  if (telephone && !telephoneRegex.test(telephone)) {
+    document.getElementById('telephone').insertAdjacentHTML('afterend', '<div class="error-message">Ingrese un número de teléfono válido.</div>');
+    isValid = false;
+  }
+
+  if (!document.getElementById('cbox1').checked) {
+    document.getElementById('cbox1').insertAdjacentHTML('afterend', '<div class="error-message">Debe aceptar los términos y condiciones.</div>');
+    isValid = false;
+  }
+
+  if (isValid) {
+    form.submit();
+  }
+});
+
 //footer
 const containerFooter = document.getElementById("footer-container");
 
